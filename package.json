@@ -1,0 +1,51 @@
+{
+    "name": "HonorVet",
+    "version": "1.0.0",
+    "private": true,
+    "scripts": {
+        "start": "node ./bin/www",
+        "lint": "npx eslint '**/*.{js,json}' --ignore-pattern 'node_modules/' --ignore-pattern 'public/js/*' --ignore-pattern 'config/constants.js' --fix",
+        "lint:fix": "npm run lint --fix",
+        "fix-styles": "prettier-stylelint --write 'src/**/*.{css,scss}' ",
+        "test": "node ./node_modules/mocha/bin/mocha ./test",
+        "test:run": "jest",
+        "prepush": "npm run lint",
+        "codehawk": "codehawk  *"
+    },
+    "dependencies": {
+        "bcryptjs": "^2.4.3",
+        "connect-multiparty": "^2.2.0",
+        "cookie-parser": "~1.4.6",
+        "cors": "^2.8.5",
+        "debug": "~4.3.3",
+        "encrypt": "^0.0.1",
+        "express": "~4.17.3",
+        "firebase": "^9.20.0",
+        "firebase-admin": "^11.7.0",
+        "handlebars": "^4.7.7",
+        "joi": "^17.6.0",
+        "jsonwebtoken": "^8.5.1",
+        "morgan": "~1.10.0",
+        "mysql2": "^2.3.3",
+        "nodemailer": "^6.7.2",
+        "pug": "^3.0.2",
+        "randomstring": "^1.2.2",
+        "sequelize": "^6.16.2",
+        "serverless-http": "^3.0.1",
+        "stripe": "^11.14.0",
+        "swagger-ui-express": "^4.3.0",
+        "twilio": "4.9.0",
+        "underscore": "^1.13.2"
+    },
+    "devDependencies": {
+        "aws-sdk": "^2.1343.0",
+        "eslint": "^8.23.1",
+        "eslint-plugin-jsonc": "^2.2.1",
+        "eslint-plugin-spellcheck": "0.0.19",
+        "nodemon": "^2.0.21",
+        "prettier-eslint": "^13.0.0",
+        "prettier-eslint-cli": "^5.0.1",
+        "prettier-stylelint": "^0.4.2",
+        "html-pdf": "3.0.1"
+    }
+}

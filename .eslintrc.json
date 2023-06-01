@@ -1,0 +1,140 @@
+{
+	"env": {
+		"node": true,
+		"commonjs": true,
+		"es6": true
+	},
+	"extends": [
+		"eslint:recommended",
+		"plugin:jsonc/recommended-with-jsonc"
+	],
+	"parserOptions": {
+		"ecmaVersion": "latest",
+		"sourceType": "module",
+		"ecmaFeatures": {
+			"jsx": true,
+			"modules": true
+		}
+	},
+	"plugins": [
+		"spellcheck"
+	],
+	"rules": {
+		"indent": [
+			"error",
+			"tab",
+			{
+				"SwitchCase": 1
+			}
+		],
+		"linebreak-style": [
+			"error",
+			"windows"
+		],
+		"quotes": [
+			"error",
+			"double"
+		],
+		"semi": [
+			"error",
+			"always"
+		],
+		"no-unused-vars": [
+			"error",
+			{
+				"vars": "all",
+				"args": "after-used",
+				"ignoreRestSiblings": false
+			}
+		],
+		"spellcheck/spell-checker": [
+			1,
+			{
+				"comments": true,
+				"strings": true,
+				"identifiers": true,
+				"templates": true,
+				"lang": "en_US",
+				"skipWords": [
+					"HonorVet",
+					"applify",
+					"Gmail",
+					"Joi",
+					"jpg",
+					"jpeg",
+					"linebreak",
+					"md",
+					"msg",
+					"otp",
+					"png",
+					"req",
+					"res",
+					"sequelize",
+					"Sequelize",
+					"sha",
+					"sms",
+					"Sms",
+					"swiper",
+					"Twilio",
+					"feedbacks",
+					"undef",
+					"utf8",
+					"randomstring",
+					"Dbssg",
+					"Aq3c3",
+					"mins",
+					"ejs",
+					"faqs",
+					"fcm",
+					"jsonwebtoken",
+					"csv",
+					"originalname",
+					"signup",
+					"querymanagement",
+					"merchantbanner",
+					"Baneer",
+					"localhost:3000",
+					"try",
+					"return",
+					"firebase",
+					"compat",
+					"35b1bde9ba85f0ead5f23a",
+					"aws",
+					"sdk",
+					"docx",
+					"Wechat",
+					"recuiterId",
+					"recuiter",
+					"dayofweek",
+					"graphdate",
+					"employement_types",
+					"favourite",
+					"Clearence",
+					"jobpost",
+					"employement",
+					"eligibles",
+					"favouriter",
+					"recruiterlist",
+					"viewlisting",
+					"recommand",
+					"Recommanded",
+					"Rajeev",
+					"Sharma",
+					"Chilli",
+					"Rchilli",
+					"Pdf",
+					"pdf"
+				],
+				"skipIfMatch": [
+					"http://[^s]*",
+					"https://[^s]*",
+					"^[-\\w]+[-\\w\\.]+$"
+				],
+				"skipWordIfMatch": [
+					"^foobar.*$"
+				],
+				"minLength": 3
+			}
+		]
+	}
+}

@@ -1,0 +1,175 @@
+@font-face {
+  font-family: "sf_ui_display";
+  src: url("../fonts/sf-ui-display-ultralight-webfont.eot");
+  src:
+    url("../fonts/sf-ui-display-ultralight-webfont.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/sf-ui-display-ultralight-webfont.woff") format("woff"),
+    url("../fonts/sf-ui-display-ultralight-webfont.ttf") format("truetype");
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "sf_ui_display";
+  src: url("../fonts/sf-ui-display-thin-webfont.eot");
+  src: url("../fonts/sf-ui-display-thin-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/sf-ui-display-thin-webfont.woff") format("woff"), url("../fonts/sf-ui-display-thin-webfont.ttf") format("truetype");
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "sf_ui_display";
+  src: url("../fonts/sf-ui-display-light-webfont.eot");
+  src: url("../fonts/sf-ui-display-light-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/sf-ui-display-light-webfont.woff") format("woff"), url("../fonts/sf-ui-display-light-webfont.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "sf_ui_display";
+  src: url("../fonts/sf-ui-display-regular-webfont.eot");
+  src: url("../fonts/sf-ui-display-regular-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/sf-ui-display-regular-webfont.woff") format("woff"), url("../fonts/sf-ui-display-regular-webfont.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "sf_ui_display";
+  src: url("../fonts/sf-ui-display-medium-webfont.eot");
+  src: url("../fonts/sf-ui-display-medium-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/sf-ui-display-medium-webfont.woff") format("woff"), url("../fonts/sf-ui-display-medium-webfont.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "sf_ui_display";
+  src: url("../fonts/sf-ui-display-semibold-webfont.eot");
+  src: url("../fonts/sf-ui-display-semibold-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/sf-ui-display-semibold-webfont.woff") format("woff"), url("../fonts/sf-ui-display-semibold-webfont.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "sf_ui_display";
+  src: url("../fonts/sf-ui-display-bold-webfont.eot");
+  src: url("../fonts/sf-ui-display-bold-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/sf-ui-display-bold-webfont.woff") format("woff"), url("../fonts/sf-ui-display-bold-webfont.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "sf_ui_display";
+  src: url("../fonts/sf-ui-display-heavy-webfont.eot");
+  src: url("../fonts/sf-ui-display-heavy-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/sf-ui-display-heavy-webfont.woff") format("woff"), url("../fonts/sf-ui-display-heavy-webfont.ttf") format("truetype");
+  font-weight: 800;
+  font-style: normal;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  font-family: "sf_ui_display", sans-serif;
+  font-weight: 400;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  color: #494949;
+  letter-spacing: 1px;
+}
+
+body,
+html {
+  height: auto;
+  letter-spacing: 0;
+  font-size: 16px;
+  font-family: "sf_ui_display", sans-serif;
+  font-weight: 400;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  color: #494949;
+  cursor: default;
+}
+
+ul,
+li,
+h1,
+h2,
+h3,
+h4,
+h5 {
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  -webkit-transition: all ease-in-out 300ms;
+  -o-transition: all ease-in-out 300ms;
+  transition: all ease-in-out 300ms;
+  text-decoration: none;
+  color: inherit;
+  outline: none;
+}
+
+img {
+  max-width: 100%;
+  vertical-align: top;
+}
+
+p {
+  margin-bottom: 10px;
+}
+
+figure {
+  text-align: center;
+}
+
+.container {
+  max-width: 960px;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 0;
+}
+
+/** About Us **/
+.headline {
+  color: #fdb157;
+  font-size: 25px;
+  font-weight: 700;
+  text-align: center;
+  text-transform: uppercase;
+  padding: 20px 0;
+}
+
+.contentBox {
+  padding: 20px;
+  border: 10px solid #ccc;
+}
+
+.ourMission .contentBox {
+  border: 10px solid #fdb157;
+}
+
+.ourVision .contentBox {
+  border: 10px solid #ff5656;
+}
+
+.ourMotto .contentBox {
+  border: 10px solid #ff5656;
+}
+
+.title {
+  color: #5ba8fd;
+  font-size: 20px;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.contentBox ul {
+  padding-left: 20px;
+}
+
+.contentBox ul li {
+  margin-bottom: 10px;
+}

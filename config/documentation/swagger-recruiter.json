@@ -1,0 +1,5405 @@
+{
+	"swagger": "2.0",
+	"info": {
+		"title": "HonorVet - Recruiter API",
+		"description": "HonorVet - Recruiter API Documentation",
+		"version": "1.0"
+	},
+	"produces": ["application/json"],
+	"basePath": "/",
+	"securityDefinitions": {
+		"Bearer": {
+			"type": "apiKey",
+			"name": "authorization",
+			"in": "header"
+		}
+	},
+	"paths": {
+		"/recruiter/v1/common/allCommon": {
+			"get": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "recruiter-v1-user-common-allIndustriesAndJobTitle-v1-get",
+				"tags": ["Recruiter Common"],
+				"description": "Get all Job titles",
+				"parameters": [
+					{
+						"name": "search",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"allowReserved": true,
+						"value": ""
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/recruiter/v1/common/searchJobTitle": {
+			"get": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "recruiter-v1-user-common-searchJobTitle-v1-get",
+				"tags": ["Recruiter Common"],
+				"description": "Get Skills and Suggest Skills",
+				"parameters": [
+					{
+						"name": "search",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"allowReserved": true,
+						"value": ""
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/recruiter/v1/common/skills": {
+			"get": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "api-v1-user-common-skills-get",
+				"tags": ["Recruiter Common"],
+				"description": "Get Skills",
+				"parameters": [
+					{
+						"name": "limit",
+						"in": "query",
+						"description": "",
+						"type": "number",
+						"required": false
+					},
+					{
+						"name": "skip",
+						"in": "query",
+						"description": "",
+						"type": "number",
+						"required": false
+					},
+					{
+						"name": "sortBy",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "orderBy",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "search",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"allowReserved": true,
+						"value": ""
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/recruiter/v1/common/employmentTypes": {
+			"get": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "api-v1-user-common-employment-get",
+				"tags": ["Recruiter Common"],
+				"description": "Get Employment-Types",
+				"parameters": [
+					{
+						"name": "limit",
+						"in": "query",
+						"description": "",
+						"type": "number",
+						"required": false
+					},
+					{
+						"name": "skip",
+						"in": "query",
+						"description": "",
+						"type": "number",
+						"required": false
+					},
+					{
+						"name": "sortBy",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "orderBy",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "search",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"allowReserved": true,
+						"value": ""
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/recruiter/v1/common/travelRequirements": {
+			"get": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "api-v1-user-common-travelRequirements-get",
+				"tags": ["Recruiter Common"],
+				"description": "Get travelRequirements",
+				"parameters": [
+					{
+						"name": "limit",
+						"in": "query",
+						"description": "",
+						"type": "number",
+						"required": false
+					},
+					{
+						"name": "skip",
+						"in": "query",
+						"description": "",
+						"type": "number",
+						"required": false
+					},
+					{
+						"name": "sortBy",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "orderBy",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "search",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"allowReserved": true,
+						"value": ""
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/recruiter/v1/common/benefits": {
+			"get": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "api-v1-user-common-benefits-get",
+				"tags": ["Recruiter Common"],
+				"description": "Get Benefits",
+				"parameters": [
+					{
+						"name": "limit",
+						"in": "query",
+						"description": "",
+						"type": "number",
+						"required": false
+					},
+					{
+						"name": "skip",
+						"in": "query",
+						"description": "",
+						"type": "number",
+						"required": false
+					},
+					{
+						"name": "sortBy",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "orderBy",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "search",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"allowReserved": true,
+						"value": ""
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/recruiter/v1/common/schedules": {
+			"get": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "api-v1-user-common-schedules-get",
+				"tags": ["Recruiter Common"],
+				"description": "Get Schedules",
+				"parameters": [
+					{
+						"name": "limit",
+						"in": "query",
+						"description": "",
+						"type": "number",
+						"required": false
+					},
+					{
+						"name": "skip",
+						"in": "query",
+						"description": "",
+						"type": "number",
+						"required": false
+					},
+					{
+						"name": "sortBy",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "orderBy",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "search",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"allowReserved": true,
+						"value": ""
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/recruiter/v1/common/supplements": {
+			"get": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "api-v1-user-common-supplements-get",
+				"tags": ["Recruiter Common"],
+				"description": "Get supplements",
+				"parameters": [
+					{
+						"name": "limit",
+						"in": "query",
+						"description": "",
+						"type": "number",
+						"required": false
+					},
+					{
+						"name": "skip",
+						"in": "query",
+						"description": "",
+						"type": "number",
+						"required": false
+					},
+					{
+						"name": "sortBy",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "orderBy",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "search",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"allowReserved": true,
+						"value": ""
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/recruiter/v1/common/screening-question": {
+			"get": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "api-v1-user-common-add-screening-get",
+				"tags": ["Recruiter Common"],
+				"description": "Get add-screening",
+				"parameters": [
+					{
+						"name": "limit",
+						"in": "query",
+						"description": "",
+						"type": "number",
+						"required": false
+					},
+					{
+						"name": "skip",
+						"in": "query",
+						"description": "",
+						"type": "number",
+						"required": false
+					},
+					{
+						"name": "sortBy",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "orderBy",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "search",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"allowReserved": true,
+						"value": ""
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/recruiter/v1/common/eligibles": {
+			"get": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "api-v1-user-common-eligibles-get",
+				"tags": ["Recruiter Common"],
+				"description": "Get Eligibles",
+				"parameters": [
+					{
+						"name": "limit",
+						"in": "query",
+						"description": "",
+						"type": "number",
+						"required": false
+					},
+					{
+						"name": "skip",
+						"in": "query",
+						"description": "",
+						"type": "number",
+						"required": false
+					},
+					{
+						"name": "sortBy",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "orderBy",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "search",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"allowReserved": true,
+						"value": ""
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/recruiter/v1/common/personalities": {
+			"get": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "api-v1-user-common-personalities-get",
+				"tags": ["Recruiter Common"],
+				"description": "Get Personalities",
+				"parameters": [
+					{
+						"name": "limit",
+						"in": "query",
+						"description": "",
+						"type": "number",
+						"required": false
+					},
+					{
+						"name": "skip",
+						"in": "query",
+						"description": "",
+						"type": "number",
+						"required": false
+					},
+					{
+						"name": "sortBy",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "orderBy",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "search",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"allowReserved": true,
+						"value": ""
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/recruiter/v1/common/hires": {
+			"get": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "api-v1-user-common-hires-get",
+				"tags": ["Recruiter Common"],
+				"description": "Get Hires",
+				"parameters": [
+					{
+						"name": "limit",
+						"in": "query",
+						"description": "",
+						"type": "number",
+						"required": false
+					},
+					{
+						"name": "skip",
+						"in": "query",
+						"description": "",
+						"type": "number",
+						"required": false
+					},
+					{
+						"name": "sortBy",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "orderBy",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "search",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"allowReserved": true,
+						"value": ""
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/recruiter/v1/common/categories": {
+			"get": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "api-v1-user-common-categories-get",
+				"tags": ["Recruiter Common"],
+				"description": "Get Categories",
+				"parameters": [
+				],
+				"responses": {}
+			}
+		},
+		"/recruiter/v1/common/getSubCategories": {
+			"get": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "recruiter-v1-getCategories-list-get",
+				"tags": ["Recruiter Common"],
+				"description": "Get sub-cat by recruiter",
+				"parameters": [
+					{
+						"name": "categoryId",
+						"in": "query",
+						"description": "",
+						"type": "string",
+						"required": false
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/recruiter/v1/common/payment": {
+			"get": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "api-v1-user-common-payment-get",
+				"tags": ["Recruiter Common"],
+				"description": "Get payment",
+				"parameters": [
+					{
+						"name": "limit",
+						"in": "query",
+						"description": "",
+						"type": "number",
+						"required": false
+					},
+					{
+						"name": "skip",
+						"in": "query",
+						"description": "",
+						"type": "number",
+						"required": false
+					},
+					{
+						"name": "sortBy",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "orderBy",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "search",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"allowReserved": true,
+						"value": ""
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/recruiter/v1/common/industry": {
+			"get": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "api-v1-user-common-industry-get",
+				"tags": ["Recruiter Common"],
+				"description": "Get Industry",
+				"parameters": [
+					{
+						"name": "limit",
+						"in": "query",
+						"description": "",
+						"type": "number",
+						"required": false
+					},
+					{
+						"name": "skip",
+						"in": "query",
+						"description": "",
+						"type": "number",
+						"required": false
+					},
+					{
+						"name": "sortBy",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "orderBy",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "search",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"allowReserved": true,
+						"value": ""
+					}
+				],
+				"responses": {}
+			}
+		},
+
+		"/recruiter/v1/common/notifications": {
+			"get": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "api-v1-user-common-notifications-get",
+				"tags": ["Recruiter Common"],
+				"description": "Get Notifications",
+				"parameters": [
+					{
+						"name": "limit",
+						"in": "query",
+						"description": "",
+						"type": "number",
+						"required": false
+					},
+					{
+						"name": "skip",
+						"in": "query",
+						"description": "",
+						"type": "number",
+						"required": false
+					},
+					{
+						"name": "sortBy",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "orderBy",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "search",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"allowReserved": true,
+						"value": ""
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/recruiter/v1/common/getSignedURL": {
+			"post": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "recruiter-v1-user-common-getSignedURL-post",
+				"tags": ["Recruiter Common"],
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"description": "Get S3 signed url to upload file on s3",
+				"parameters": [
+					{
+						"name": "directory",
+						"in": "formData",
+						"description": "Directory in s3 for particular file",
+						"type": "string",
+						"value": "",
+						"required": true
+					},
+					{
+						"name": "fileName",
+						"in": "formData",
+						"description": "Filename of file on client device",
+						"type": "string",
+						"value": "",
+						"required": true
+					},
+					{
+						"name": "contentType",
+						"in": "formData",
+						"description": "contentType of file, if file is not an image",
+						"type": "string",
+						"value": "",
+						"required": false
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/recruiter/v1/common/s3folders": {
+			"get": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "recruiter-v1-common-s3folders-get",
+				"tags": ["Recruiter Common"],
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"description": "Get S3 folders",
+				"parameters": [],
+				"responses": {}
+			}
+		},
+		"/recruiter/v1/common/landingPage": {
+			"get": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "api-v1-recruiter-success-stories-get",
+				"tags": ["Success Stories"],
+				"description": "Get success stories",
+				"parameters": [],
+				"responses": {}
+			}
+		},
+		"/recruiter/v1/recruiter/register": {
+			"post": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "api-v1-recruiter-signup-post",
+				"tags": ["Application Recruiter"],
+				"description": "",
+				"parameters": [
+					{
+						"name": "name",
+						"in": "formData",
+						"description": "Name of recruiter",
+						"required": false,
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "email",
+						"in": "formData",
+						"description": "Email address of recruiter",
+						"required": false,
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "deviceToken",
+						"in": "formData",
+						"description": "Device token for PUSH notifications",
+						"required": true,
+						"type": "string",
+						"value": ""
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/recruiter/v1/recruiter/verify-otp": {
+			"put": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "verify-otp",
+				"tags": ["Application Recruiter"],
+				"description": "",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "otp",
+						"in": "formData",
+						"description": "OTP received on email",
+						"type": "string",
+						"value": "",
+						"required": true
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/recruiter/v1/recruiter/resendSignUpOtp": {
+			"put": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "resendSignUpOtp",
+				"tags": ["Application Recruiter"],
+				"description": "",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "authorization",
+						"in": "header",
+						"description": "Authorization Token",
+						"type": "string",
+						"value": "",
+						"required": true
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/recruiter/v1/recruiter/setUserPassword": {
+			"put": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "set-user-password",
+				"tags": ["Application Recruiter"],
+				"description": "",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "password",
+						"in": "formData",
+						"description": "password of user",
+						"type": "string",
+						"value": "",
+						"required": true
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/recruiter/v1/recruiter/login": {
+			"post": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "recruiter-v1-recruiter-login-post",
+				"tags": ["Application Recruiter"],
+				"description": "Recruiter Login...",
+				"parameters": [
+					{
+						"name": "email",
+						"in": "formData",
+						"description": "email is required",
+						"required": true,
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "password",
+						"in": "formData",
+						"description": "password is required",
+						"required": true,
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "deviceToken",
+						"in": "formData",
+						"description": "Device token for PUSH notifications",
+						"required": true,
+						"type": "string",
+						"value": ""
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/recruiter/v1/recruiter/logout": {
+			"put": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "recruiter-v1-recruiter-logout-put",
+				"tags": ["Application Recruiter"],
+				"description": "Logout Recruiter..",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "deviceToken",
+						"in": "formData",
+						"description": "",
+						"type": "string",
+						"value": "",
+						"required": true
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/recruiter/v1/recruiter/forgot-password": {
+			"post": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "recruiter-v1-recruiter-forgot-password-post",
+				"tags": ["Application Recruiter"],
+				"description": "Forgot Password..",
+				"parameters": [
+					{
+						"name": "email",
+						"in": "formData",
+						"description": "email is required",
+						"required": true,
+						"type": "string",
+						"value": ""
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/recruiter/v1/recruiter/profile/change-password": {
+			"put": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "recruiter-v1-recruiter-profile-change-password-put",
+				"tags": ["Application Recruiter"],
+				"description": "Change Password",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "newPassword",
+						"in": "formData",
+						"description": "password is required",
+						"required": true,
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "oldPassword",
+						"in": "formData",
+						"description": "oldPassword is required",
+						"required": true,
+						"type": "string",
+						"value": ""
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/recruiter/v1/recruiter/reset-Password": {
+			"put": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "recruiter-v1-recruiter-reset-Password-put",
+				"tags": ["Application Recruiter"],
+				"description": "Reset Password",
+				"parameters": [
+					{
+						"name": "token",
+						"in": "formData",
+						"description": "token is required",
+						"required": true,
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "newPassword",
+						"in": "formData",
+						"description": "newPassword is required",
+						"required": true,
+						"type": "string",
+						"value": ""
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/recruiter/v1/recruiter/recurring-payment": {
+			"put": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "recruiter-v1-recruiter-recurring-Payment-put",
+				"tags": ["Application Recruiter"],
+				"description": "recurring Payment",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "subscribePayment",
+						"in": "formData",
+						"description": "subscribePayment 0 is off 1 is on",
+						"required": false,
+						"type": "number",
+						"value": ""
+					},
+					{
+						"name": "inventoryPayment",
+						"in": "formData",
+						"description": "inventoryPayment 0 is off 1 is on",
+						"required": false,
+						"type": "number",
+						"value": ""
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/recruiter/v1/recruiter/recurring-notification": {
+			"put": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "recruiter-v1-recruiter-recurring-notification-put",
+				"tags": ["Application Recruiter"],
+				"description": "recurring notification setting",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "isNotificationSetting",
+						"in": "formData",
+						"description": "isNotificationSetting 0 is on 1 is off",
+						"required": false,
+						"type": "number",
+						"value": ""
+					},
+					{
+						"name": "isNotificationSMSSetting",
+						"in": "formData",
+						"description": "isNotificationSMSSetting 0 is on 1 is off",
+						"required": false,
+						"type": "number",
+						"value": ""
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/recruiter/v1/recruiter/updateProfile": {
+			"put": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "update-Profile",
+				"tags": ["Application Recruiter"],
+				"description": "",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "body",
+						"in": "body",
+						"schema": {
+							"properties": {
+								"profileImage": {
+									"description": "",
+									"type": "string",
+									"value": "",
+									"required": false
+								},
+								"name": {
+									"description": "",
+									"type": "string",
+									"value": "",
+									"required": false
+								},
+								"companyEmail": {
+									"description": "",
+									"type": "string",
+									"value": "",
+									"required": false
+								},
+								"description": {
+									"description": "",
+									"type": "string",
+									"value": "",
+									"required": false
+								},
+								"companySize": {
+									"description": "",
+									"type": "string",
+									"value": "",
+									"required": false
+								},
+								"address": {
+									"description": "",
+									"type": "string",
+									"value": "",
+									"required": false
+								},
+								"state": {
+									"description": "",
+									"type": "string",
+									"value": "",
+									"required": false
+								},
+								"city": {
+									"description": "",
+									"type": "string",
+									"value": "",
+									"required": false
+								},
+								"websiteLink": {
+									"description": "",
+									"type": "string",
+									"value": "",
+									"required": false
+								},
+								"linkedInLink": {
+									"description": "",
+									"type": "string",
+									"value": "",
+									"required": false
+								},
+								"industry": {
+									"description": "",
+									"type": "string",
+									"value": "",
+									"required": false
+								},
+								"companyName": {
+									"description": "",
+									"type": "string",
+									"value": "",
+									"required": false
+								},
+								"countryCode": {
+									"description": "",
+									"type": "string",
+									"value": "",
+									"required": false
+								},
+								"subscribeHonorvet": {
+									"description": "subscribeHonorvet is required",
+									"required": true,
+									"type": "",
+									"enum": [0, 1],
+									"value": ""
+								},
+								"phoneNumber": {
+									"description": "",
+									"type": "string",
+									"value": "",
+									"required": false
+								},
+								"dateOfBirth": {
+									"description": "",
+									"type": "string",
+									"value": "",
+									"required": false
+								},
+								"gender": {
+									"description": "0 => Male, 1 => Female, 2 => Non-binary",
+									"type": "number",
+									"enum": [0, 1, 2],
+									"value": "",
+									"required": true
+								},
+
+								"location": {
+									"description": "",
+									"type": "string",
+									"value": "",
+									"required": false
+								},
+								"zipCode": {
+									"description": "",
+									"type": "string",
+									"value": "",
+									"required": false
+								},
+								"latitude": {
+									"description": "",
+									"type": "string",
+									"value": "",
+									"required": false
+								},
+								"longitude": {
+									"description": "",
+									"type": "string",
+									"value": "",
+									"required": false
+								}
+							}
+						}
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/recruiter/v1/recruiter/list": {
+			"get": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "recruiter-v1-recruiter-list-getAll",
+				"tags": ["Application Recruiter"],
+				"description": "List All Recuiter",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "limit",
+						"description": "Limit",
+						"in": "query",
+						"required": true,
+						"type": "integer",
+						"value": "10"
+					},
+					{
+						"name": "skip",
+						"description": "Skip",
+						"in": "query",
+						"required": true,
+						"type": "integer",
+						"value": "0"
+					},
+					{
+						"name": "sortBy",
+						"description": "sort by",
+						"in": "query",
+						"required": false,
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "orderBy",
+						"description": "order by",
+						"in": "query",
+						"required": false,
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "search",
+						"in": "query",
+						"description": "Search",
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "isBlocked",
+						"enum": [0, 1],
+						"description": "Blocked recruiter users",
+						"in": "query",
+						"type": "integer",
+						"required": false
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/recruiter/v1/recruiter/recruiter/{id}": {
+			"get": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "recruiter-v1-recruiter-{id}-get",
+				"tags": ["Application Recruiter"],
+				"description": "Get Recruiter details by id",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"description": "",
+						"type": "string",
+						"required": true
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/recruiter/v1/recruiter/recruiterPermission/{id}": {
+			"get": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "recruiter-v1-recruiterPermission-{id}-get",
+				"tags": ["Recruiter Permission By Id"],
+				"description": "Get Recruiter Permission by id",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"description": "",
+						"type": "string",
+						"required": true
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/recruiter/v1/recruiter/jobpost/add": {
+			"post": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "recruiter-v1-recruiter-job-post-post",
+				"tags": ["Post Jobs"],
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"description": "Create Jobs",
+				"parameters": [
+					{
+						"name": "body",
+						"in": "body",
+						"schema": {
+							"properties": {
+								"jobTitle": {
+									"in": "formData",
+									"type": "string",
+									"required": false
+								},
+								"categoryId": {
+									"in": "formData",
+									"type": "string",
+									"required": false
+								},
+								"industryId": {
+									"in": "formData",
+									"type": "string",
+									"required": false
+								},
+								"description": {
+									"in": "formData",
+									"type": "string",
+									"required": false
+								},
+								"workPlaceLocation": {
+									"in": "formData",
+									"type": "string",
+									"required": false
+								},
+								"employementTypeId": {
+									"in": "formData",
+									"type": "string",
+									"required": false
+								},
+								"scheduleId": {
+									"in": "formData",
+									"type": "string",
+									"required": false
+								},
+								"payOption": {
+									"in": "formData",
+									"type": "string",
+									"required": false
+								},
+								"price": {
+									"in": "formData",
+									"type": "string",
+									"required": false
+								},
+								"minimum": {
+									"in": "formData",
+									"type": "string",
+									"required": false
+								},
+								"maximum": {
+									"in": "formData",
+									"type": "string",
+									"required": false
+								},
+								"rate": {
+									"in": "formData",
+									"type": "string",
+									"required": false
+								},
+
+								"vaccinationCerificate": {
+									"in": "formData",
+									"type": "number",
+									"required": false
+								},
+								"travelRequirementId": {
+									"in": "formData",
+									"type": "string",
+									"required": false
+								},
+								"noOfPeopleRequired": {
+									"in": "formData",
+									"type": "number",
+									"required": false
+								},
+								"quicklyNeedForHireId": {
+									"in": "formData",
+									"type": "string",
+									"required": false
+								},
+								"countryCode": {
+									"in": "formData",
+									"type": "string",
+									"required": false
+								},
+								"phoneNumber": {
+									"in": "formData",
+									"type": "string",
+									"required": false
+								},
+								"isConfirm": {
+									"in": "formData",
+									"type": "number",
+									"required": false
+								},
+								"supplementalPayId": {
+									"type": "array",
+									"required": false,
+									"items": {
+										"$ref": "#/definitions/supplementalPayId"
+									},
+									"example": [
+										{ "supplementalPayId": "111" },
+										{ "supplementalPayId": "2222" }
+									]
+								},
+								"address": {
+									"type": "array",
+									"required": false,
+									"items": {
+										"$ref": "#/definitions/address"
+									},
+									"example": [
+										{
+											"location": "Delhi",
+											"state": "state",
+											"city": "city",
+											"zipCode": "123456",
+											"latitude": "123344",
+											"longitude": "43434"
+										},
+										{
+											"location": "Delhi",
+											"state": "state",
+											"city": "city",
+											"zipCode": "123456",
+											"latitude": "23223",
+											"longitude": "5445"
+										}
+									]
+								},
+								"skillIds": {
+									"type": "array",
+									"required": false,
+									"items": {
+										"$ref": "#/definitions/skillIds"
+									},
+									"example": [{ "skillId": "111" }, { "skillId": "2222" }]
+								},
+								"jobEligibleForId": {
+									"type": "array",
+									"required": false,
+									"items": {
+										"$ref": "#/definitions/jobEligibleForId"
+									},
+									"example": [
+										{ "jobEligibleForId": "111" },
+										{ "jobEligibleForId": "2222" }
+									]
+								},
+								"personalitiesIds": {
+									"type": "array",
+									"required": false,
+									"items": {
+										"$ref": "#/definitions/personalitiesIds"
+									},
+									"example": [
+										{ "personalitiesId": "201" },
+										{ "personalitiesId": "202" }
+									]
+								},
+								"subCategoryId": {
+									"type": "array",
+									"required": false,
+									"items": {
+										"$ref": "#/definitions/subCategoryId"
+									},
+									"example": [
+										{ "categoryId": "201","subCategoryId":"1234","others":"if there is text field option then use it other wise no need to send this key" },
+										{ "categoryId": "201","subCategoryId":"1234","others":"if there is text field option then use it other wise no need to send this key" }
+									]
+								},
+								"emailsIds": {
+									"type": "array",
+									"required": false,
+									"items": {
+										"$ref": "#/definitions/emailsIds"
+									},
+									"example": [
+										{ "emailId": "abc.k@applify.co" },
+										{ "emailId": "xyz.l@applify.co" }
+									]
+								},
+								"benefitsIds": {
+									"type": "array",
+									"required": false,
+									"items": {
+										"$ref": "#/definitions/benefitsIds"
+									},
+									"example": [{ "benefitsId": "301" }, { "benefitsId": "302" }]
+								},
+								"addCustomQuestion": {
+									"type": "array",
+									"required": true,
+									"items": {
+										"$ref": "#/definitions/addCustomQuestion"
+									}
+								}
+							}
+						}
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/recruiter/v1/recruiter/jobpost/saveJob": {
+			"post": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "recruiter-v1-recruiter-job-post-post-save",
+				"tags": ["Post Jobs"],
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"description": "Create Jobs",
+				"parameters": [
+					{
+						"name": "body",
+						"in": "body",
+						"schema": {
+							"properties": {
+								"id": {
+									"in": "formData",
+									"type": "string",
+									"required": false
+								},
+								"jobTitle": {
+									"in": "formData",
+									"type": "string",
+									"required": false
+								},
+								"categoryId": {
+									"in": "formData",
+									"type": "string",
+									"required": false
+								},
+								"industryId": {
+									"in": "formData",
+									"type": "string",
+									"required": false
+								},
+								"description": {
+									"in": "formData",
+									"type": "string",
+									"required": false
+								},
+								"workPlaceLocation": {
+									"in": "formData",
+									"type": "string",
+									"required": false
+								},
+								"employementTypeId": {
+									"in": "formData",
+									"type": "string",
+									"required": false
+								},
+								"scheduleId": {
+									"in": "formData",
+									"type": "string",
+									"required": false
+								},
+								"payOption": {
+									"in": "formData",
+									"type": "string",
+									"required": false
+								},
+								"price": {
+									"in": "formData",
+									"type": "string",
+									"required": false
+								},
+								"minimum": {
+									"in": "formData",
+									"type": "string",
+									"required": false
+								},
+								"maximum": {
+									"in": "formData",
+									"type": "string",
+									"required": false
+								},
+								"rate": {
+									"in": "formData",
+									"type": "string",
+									"required": false
+								},
+								"vaccinationCerificate": {
+									"in": "formData",
+									"type": "number",
+									"required": false
+								},
+								"travelRequirementId": {
+									"in": "formData",
+									"type": "string",
+									"required": false
+								},
+								"noOfPeopleRequired": {
+									"in": "formData",
+									"type": "number",
+									"required": false
+								},
+								"quicklyNeedForHireId": {
+									"in": "formData",
+									"type": "string",
+									"required": false
+								},
+								"countryCode": {
+									"in": "formData",
+									"type": "string",
+									"required": false
+								},
+								"phoneNumber": {
+									"in": "formData",
+									"type": "string",
+									"required": false
+								},
+								"isConfirm": {
+									"in": "formData",
+									"type": "number",
+									"required": false
+								},
+								"supplementalPayId": {
+									"type": "array",
+									"required": false,
+									"items": {
+										"$ref": "#/definitions/supplementalPayId"
+									},
+									"example": [
+										{ "supplementalPayId": "111" },
+										{ "supplementalPayId": "2222" }
+									]
+								},
+								"address": {
+									"type": "array",
+									"required": false,
+									"items": {
+										"$ref": "#/definitions/address"
+									},
+									"example": [
+										{
+											"location": "Delhi",
+											"state": "state",
+											"city": "city",
+											"zipCode": "123456",
+											"latitude": "123344",
+											"longitude": "43434"
+										},
+										{
+											"location": "Delhi",
+											"state": "state",
+											"city": "city",
+											"zipCode": "123456",
+											"latitude": "23223",
+											"longitude": "5445"
+										}
+									]
+								},
+								"skillIds": {
+									"type": "array",
+									"required": false,
+									"items": {
+										"$ref": "#/definitions/skillIds"
+									},
+									"example": [{ "skillId": "111" }, { "skillId": "2222" }]
+								},
+								"jobEligibleForId": {
+									"type": "array",
+									"required": false,
+									"items": {
+										"$ref": "#/definitions/jobEligibleForId"
+									},
+									"example": [
+										{ "jobEligibleForId": "111" },
+										{ "jobEligibleForId": "2222" }
+									]
+								},
+								"personalitiesIds": {
+									"type": "array",
+									"required": false,
+									"items": {
+										"$ref": "#/definitions/personalitiesIds"
+									},
+									"example": [
+										{ "personalitiesId": "201" },
+										{ "personalitiesId": "202" }
+									]
+								},
+								"subCategoryId": {
+									"type": "array",
+									"required": false,
+									"items": {
+										"$ref": "#/definitions/subCategoryId"
+									},
+									"example": [
+										{ "categoryId": "201","subCategoryId":"1234","others":"if there is text field option then use it other wise no need to send this key" },
+										{ "categoryId": "201","subCategoryId":"1234","others":"if there is text field option then use it other wise no need to send this key" }
+									]
+								},
+								"emailsIds": {
+									"type": "array",
+									"required": false,
+									"items": {
+										"$ref": "#/definitions/emailsIds"
+									},
+									"example": [
+										{ "emailId": "abc.k@applify.co" },
+										{ "emailId": "xyz.l@applify.co" }
+									]
+								},
+								"benefitsIds": {
+									"type": "array",
+									"required": false,
+									"items": {
+										"$ref": "#/definitions/benefitsIds"
+									},
+									"example": [{ "benefitsId": "301" }, { "benefitsId": "302" }]
+								},
+								"addCustomQuestion": {
+									"type": "array",
+									"required": true,
+									"items": {
+										"$ref": "#/definitions/addCustomQuestion"
+									}
+								}
+							}
+						}
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/recruiter/v1/recruiter/jobpost": {
+			"post": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "recruiter-v1-recruiter-filter-data-post",
+				"tags": ["Post Jobs"],
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"description": "Create Jobs",
+				"parameters": [
+					{
+						"name": "body",
+						"in": "body",
+						"schema": {
+							"properties": {
+								"limit": {
+									"in": "formData",
+									"type": "integer",
+									"required": false,
+									"value": "10"
+								},
+								"skip": {
+									"in": "formData",
+									"type": "integer",
+									"required": false,
+									"value": "0"
+								},
+
+								"jobTitle": {
+									"in": "formData",
+									"type": "string",
+									"required": false
+								},
+								"location": {
+									"in": "formData",
+									"description": "",
+									"required": false,
+									"type": "string",
+									"allowReserved": true,
+									"value": ""
+								},
+								"minimum": {
+									"in": "formData",
+									"description": "",
+									"required": false,
+									"type": "string",
+									"allowReserved": true,
+									"value": ""
+								},
+								"maximum": {
+									"in": "formData",
+									"description": "",
+									"required": false,
+									"type": "string",
+									"allowReserved": true,
+									"value": ""
+								},
+								"rate": {
+									"in": "formData",
+									"description": "",
+									"required": false,
+									"type": "string",
+									"allowReserved": true,
+									"value": ""
+								},
+								"supplementalPayId": {
+									"type": "array",
+									"required": false,
+									"items": {
+										"$ref": "#/definitions/supplementalPayId"
+									},
+									"example": [
+										{ "supplementalPayId": "111" },
+										{ "supplementalPayId": "2222" }
+									]
+								},
+								"industryId": {
+									"in": "formData",
+									"description": "['industryId']",
+									"schema": {
+										"$ref": "#/definitions/industryIdmembers"
+									},
+									"example": ["id1", "id2"],
+									"required": false
+								},
+								"employementTypeId": {
+									"in": "formData",
+									"description": "['employementTypeId']",
+									"schema": {
+										"$ref": "#/definitions/employementTypeIdmembers"
+									},
+									"example": ["id1", "id2"],
+									"required": false
+								},
+								"categoryId": {
+									"in": "formData",
+									"description": "['categoryId']",
+									"schema": {
+										"$ref": "#/definitions/categoryIdmembers"
+									},
+									"example": ["id1", "id2"],
+									"required": false
+								},
+								"benefitsId": {
+									"in": "formData",
+									"description": "['benefitsIds']",
+									"schema": {
+										"$ref": "#/definitions/benefitsIdmembers"
+									},
+									"example": ["id1", "id2"],
+									"required": false
+								},
+								"personalitiesIds": {
+									"in": "formData",
+									"description": "['personalitiesIds']",
+									"schema": {
+										"$ref": "#/definitions/personalitiesIdmembers"
+									},
+									"example": ["id1", "id2"],
+									"required": false
+								},
+								"travelRequirementId": {
+									"in": "formData",
+									"description": "['personalitiesIds']",
+									"schema": {
+										"$ref": "#/definitions/travelRequirementIdmembers"
+									},
+									"example": ["id1", "id2"],
+									"required": false
+								},
+								"jobEligibleForId": {
+									"in": "formData",
+									"description": "['personalitiesIds']",
+									"schema": {
+										"$ref": "#/definitions/jobEligibleForIdmembers"
+									},
+									"example": ["id1", "id2"],
+									"required": false
+								},
+								"scheduleId": {
+									"in": "formData",
+									"description": "['personalitiesIds']",
+									"schema": {
+										"$ref": "#/definitions/scheduleIdmemebers"
+									},
+									"example": ["id1", "id2"],
+									"required": false
+								},
+								"workPlaceLocation": {
+									"in": "formData",
+									"description": "['personalitiesIds']",
+									"schema": {
+										"$ref": "#/definitions/workPlaceLocationmembers"
+									},
+									"example": ["id1", "id2"],
+									"required": false
+								}
+							}
+						}
+					}
+				],
+				"responses": {}
+			},
+			"get": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "recruiter-v1-recruiter-job-list-get",
+				"tags": ["Post Jobs"],
+				"description": "Get Recruiter Job list by recruiter",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "limit",
+						"in": "query",
+						"description": "",
+						"type": "number",
+						"required": false
+					},
+					{
+						"name": "skip",
+						"in": "query",
+						"description": "",
+						"type": "number",
+						"required": false
+					},
+					{
+						"name": "sortBy",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "orderBy",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "search",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"allowReserved": true,
+						"value": ""
+					}
+				],
+				"responses": {}
+			},
+			"put": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "recruiter-v1-recruiter-jobpost-put",
+				"tags": ["Post Jobs"],
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"description": "Update Job Post",
+				"parameters": [
+					{
+						"name": "body",
+						"in": "body",
+						"schema": {
+							"properties": {
+								"id": {
+									"in": "formData",
+									"type": "string",
+									"required": true
+								},
+								"jobTitle": {
+									"in": "formData",
+									"type": "string",
+									"required": true
+								},
+								"categoryId": {
+									"in": "formData",
+									"type": "string",
+									"required": false
+								},
+								"isBlocked": {
+									"in": "formData",
+									"type": "string",
+									"required": false
+								},
+								"industryId": {
+									"in": "formData",
+									"type": "string",
+									"required": true
+								},
+								"workPlaceLocation": {
+									"in": "formData",
+									"type": "string",
+									"required": false
+								},
+								"description": {
+									"in": "formData",
+									"type": "string",
+									"required": false
+								},
+								"employementTypeId": {
+									"in": "formData",
+									"type": "string",
+									"required": true
+								},
+								"scheduleId": {
+									"in": "formData",
+									"type": "string",
+									"required": false
+								},
+								"payOption": {
+									"in": "formData",
+									"type": "string",
+									"required": false
+								},
+								"price": {
+									"in": "formData",
+									"type": "string",
+									"required": false
+								},
+								"minimum": {
+									"in": "formData",
+									"type": "string",
+									"required": true
+								},
+								"maximum": {
+									"in": "formData",
+									"type": "string",
+									"required": false
+								},
+								"rate": {
+									"in": "formData",
+									"type": "string",
+									"required": false
+								},
+								"vaccinationCerificate": {
+									"in": "formData",
+									"type": "number",
+									"required": false
+								},
+								"travelRequirementId": {
+									"in": "formData",
+									"type": "string",
+									"required": false
+								},
+								"noOfPeopleRequired": {
+									"in": "formData",
+									"type": "number",
+									"required": true
+								},
+								"quicklyNeedForHireId": {
+									"in": "formData",
+									"type": "string",
+									"required": false
+								},
+								"countryCode": {
+									"in": "formData",
+									"type": "string",
+									"required": false
+								},
+								"phoneNumber": {
+									"in": "formData",
+									"type": "string",
+									"required": false
+								},
+								"isConfirm": {
+									"in": "formData",
+									"type": "number",
+									"required": false
+								},
+								"supplementalPayId": {
+									"type": "array",
+									"required": false,
+									"items": {
+										"$ref": "#/definitions/supplementalPayId"
+									},
+									"example": [
+										{ "supplementalPayId": "111" },
+										{ "supplementalPayId": "2222" }
+									]
+								},
+								"address": {
+									"type": "array",
+									"required": false,
+									"items": {
+										"$ref": "#/definitions/address"
+									},
+									"example": [
+										{
+											"location": "Delhi",
+											"state": "state",
+											"city": "city",
+											"zipCode": "123456",
+											"latitude": "23223",
+											"longitude": "5445"
+										},
+										{
+											"location": "Delhi",
+											"state": "state",
+											"city": "city",
+											"zipCode": "123456",
+											"latitude": "23223",
+											"longitude": "5445"
+										}
+									]
+								},
+								"skillIds": {
+									"type": "array",
+									"required": false,
+									"items": {
+										"$ref": "#/definitions/skillIds"
+									},
+									"example": [{ "skillId": "111" }, { "skillId": "2222" }]
+								},
+								"jobEligibleForId": {
+									"type": "array",
+									"required": false,
+									"items": {
+										"$ref": "#/definitions/jobEligibleForId"
+									},
+									"example": [
+										{ "jobEligibleForId": "111" },
+										{ "jobEligibleForId": "2222" }
+									]
+								},
+								"personalitiesIds": {
+									"type": "array",
+									"required": false,
+									"items": {
+										"$ref": "#/definitions/personalitiesIds"
+									},
+									"example": [
+										{ "personalitiesId": "201" },
+										{ "personalitiesId": "202" }
+									]
+								},
+								"subCategoryId": {
+									"type": "array",
+									"required": false,
+									"items": {
+										"$ref": "#/definitions/subCategoryId"
+									},
+									"example": [
+										{ "categoryId": "201","subCategoryId":"1234","others":"if there is text field option then use it other wise no need to send this key" },
+										{ "categoryId": "201","subCategoryId":"1234","others":"if there is text field option then use it other wise no need to send this key" }
+									]
+								},
+								"emailsIds": {
+									"type": "array",
+									"required": false,
+									"items": {
+										"$ref": "#/definitions/emailsIds"
+									},
+									"example": [
+										{ "emailId": "abc.k@applify.co" },
+										{ "emailId": "xyz.l@applify.co" }
+									]
+								},
+								"benefitsIds": {
+									"type": "array",
+									"required": false,
+									"items": {
+										"$ref": "#/definitions/benefitsIds"
+									},
+									"example": [{ "benefitsId": "301" }, { "benefitsId": "302" }]
+								},
+								"addCustomQuestion": {
+									"type": "array",
+									"required": true,
+									"items": {
+										"$ref": "#/definitions/addCustomQuestion"
+									}
+								}
+							}
+						}
+					}
+				],
+				"responses": {}
+			},
+			"delete": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "recruiter-v1-recruiter-jobpost-delete",
+				"tags": ["Post Jobs"],
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"description": "Delete jobPost",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "formData",
+						"type": "string",
+						"required": true
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/recruiter/v1/recruiter/jobpost/activeJobsLists": {
+			"get": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "recruiter-v1-recruiter-active-job-list-get",
+				"tags": ["Post Jobs"],
+				"description": "Get Recruiter Job list by recruiter",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "limit",
+						"in": "query",
+						"description": "",
+						"type": "number",
+						"required": false
+					},
+					{
+						"name": "skip",
+						"in": "query",
+						"description": "",
+						"type": "number",
+						"required": false
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/recruiter/v1/recruiter/jobpost/{id}": {
+			"get": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "recruiter-v1-recruiter-jobpost-{id}-get",
+				"tags": ["Post Jobs"],
+				"description": "Get Post jobs details by id",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"description": "",
+						"type": "string",
+						"required": true
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/recruiter/v1/recruiter/jobpost/v1/{id}": {
+			"get": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "recruiter-v1-recruiter-jobpost-v1-{id}-get",
+				"tags": ["Post Jobs"],
+				"description": "Get Post jobs details v1 by id",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"description": "",
+						"type": "string",
+						"required": true
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/recruiter/v1/recruiter/jobpost/applicant/detail": {
+			"get": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "recruiter-v1-recruiter-applicant-search-{id}-get",
+				"tags": ["Post Jobs"],
+				"description": "Get Detail of user that are applyed for specific Job",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "query",
+						"description": "",
+						"type": "string",
+						"required": true
+					},
+					{
+						"name": "search",
+						"in": "query",
+						"description": "",
+						"type": "string",
+						"required": false
+					},
+					{
+						"name": "status",
+						"in": "query",
+						"description": "0 for pending 1 for shortlisted 2 for rejected and 3 for on hold and nothing send to get all",
+						"enum": [0, 1, 2, 3],
+						"type": "number",
+						"required": false
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/recruiter/v1/recruiter/jobpost/applicant/statusUpdate": {
+			"put": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "recruiter-v1-recruiter-applicant-statusUpdate-put",
+				"tags": ["Post Jobs"],
+				"description": "Update the status of User apply Job",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "formData",
+						"description": "",
+						"type": "string",
+						"required": true
+					},
+					{
+						"name": "status",
+						"in": "formData",
+						"description": "0 for pending 1 for shortlisted 2 for rejected and 3 for on hold ",
+						"enum": [0, 1, 2, 3],
+						"type": "number",
+						"required": false
+					},
+					{
+						"name": "note",
+						"in": "formData",
+						"description": "",
+						"type": "string",
+						"required": false
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/recruiter/v1/recruiter/jobpost/getUser/{id}/{userId}": {
+			"get": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "recruiter-v1-recruiter-getResume-v1-{id}-get",
+				"tags": ["Post Jobs"],
+				"description": "Get User Detail",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"description": "Job Post Id",
+						"type": "string",
+						"required": true
+					},
+					{
+						"name": "userId",
+						"in": "path",
+						"description": "",
+						"type": "string",
+						"required": true
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/recruiter/v1/recruiter/jobpost/suggested": {
+			"get": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "recruiter-v1-recruiter-suggested-v1-{id}-get",
+				"tags": ["Post Jobs"],
+				"description": "Get Suggested candidate detail",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "limit",
+						"in": "query",
+						"description": "",
+						"type": "number",
+						"required": false
+					},
+					{
+						"name": "skip",
+						"in": "query",
+						"description": "",
+						"type": "number",
+						"required": false
+					},
+					{
+						"name": "search",
+						"in": "query",
+						"description": "",
+						"type": "string",
+						"required": false
+					},
+					{
+						"name": "jobPostId",
+						"in": "query",
+						"description": "",
+						"type": "string",
+						"required": false
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/recruiter/v1/recruiter/jobpost/suggested/sortListed": {
+			"post": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "recruiter-v1-recruiter-suggested-candidate-sort-listed-post",
+				"tags": ["Post Jobs"],
+				"description": "Suggested candidate shortListed",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "userId",
+						"in": "formData",
+						"description": "",
+						"type": "string",
+						"required": true
+					},
+					{
+						"name": "jobPostId",
+						"in": "formData",
+						"description": "",
+						"type": "string",
+						"required": true
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/recruiter/v1/recruiter/jobpost/suggested/hide": {
+			"post": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "recruiter-v1-recruiter-suggested-candidate-hide-post",
+				"tags": ["Post Jobs"],
+				"description": "Suggested candidate Hide",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "userId",
+						"in": "formData",
+						"description": "",
+						"type": "string",
+						"required": true
+					},
+					{
+						"name": "jobPostId",
+						"in": "formData",
+						"description": "",
+						"type": "string",
+						"required": true
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/recruiter/v1/recruiter/jobpost/getList/web": {
+			"get": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "recruiter-v1-recruiter-job-list-for-web-get",
+				"tags": ["Post Jobs"],
+				"description": "Get Recruiter Job list by recruiter for web",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "limit",
+						"in": "query",
+						"description": "",
+						"type": "number",
+						"required": false
+					},
+					{
+						"name": "skip",
+						"in": "query",
+						"description": "",
+						"type": "number",
+						"required": false
+					},
+					{
+						"name": "sortBy",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "orderBy",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "search",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"allowReserved": true,
+						"value": ""
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/recruiter/v1/recruiter/jobpost/jobClose/reason": {
+			"put": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "recruiter-v1-recruiter-jobClose-reason--put",
+				"tags": ["Post Jobs"],
+				"description": "Close job with reason",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "formData",
+						"description": "",
+						"type": "string",
+						"required": true
+					},
+					{
+						"name": "reason",
+						"in": "formData",
+						"description": "",
+						"type": "string",
+						"required": false
+					},
+					{
+						"name": "isBlocked",
+						"in": "formData",
+						"description": "",
+						"type": "number",
+						"required": false
+					},
+					{
+						"name": "isNotify",
+						"in": "formData",
+						"description": "",
+						"enum":[0,1],
+						"type": "number",
+						"required": false
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/recruiter/v1/recruiter/jobpost/getUserAllNotes": {
+			"get": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "recruiter-v1-recruiter-getUserAllNotes-v1-{id}-get",
+				"tags": ["Post Jobs"],
+				"description": "Get All Notes Detail of Particular user",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "limit",
+						"in": "query",
+						"description": "",
+						"type": "number",
+						"required": false
+					},
+					{
+						"name": "skip",
+						"in": "query",
+						"description": "",
+						"type": "number",
+						"required": false
+					},
+					{
+						"name": "userId",
+						"in": "query",
+						"description": "",
+						"type": "string",
+						"required": true
+					},
+					{
+						"name": "filter",
+						"in": "query",
+						"description": "0 for all and 1 for self",
+						"type": "number",
+						"enum": [0, 1],
+						"required": false
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/recruiter/v1/recruiter/jobpost/userNotes/update": {
+			"put": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "recruiter-v1-recruiter-update-user-note-put",
+				"tags": ["Post Jobs"],
+				"description": "Update the notes of user",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "formData",
+						"description": "",
+						"type": "string",
+						"required": true
+					},
+					{
+						"name": "userId",
+						"in": "formData",
+						"description": "",
+						"type": "string",
+						"required": true
+					},
+					{
+						"name": "note",
+						"in": "formData",
+						"description": "",
+						"type": "string",
+						"required": true
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/recruiter/v1/recruiter/jobpost/userNotes/delete": {
+			"delete": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "recruiter-v1-recruiter-notes-delete",
+				"tags": ["Post Jobs"],
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"description": "Delete User notes",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "formData",
+						"type": "string",
+						"required": true
+					},
+					{
+						"name": "userId",
+						"in": "formData",
+						"type": "string",
+						"required": true
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/recruiter/v1/recruiter/jobpost/activity/detail": {
+			"get": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "recruiter-v1-recruiter-activity-search-{id}-get",
+				"tags": ["Post Jobs"],
+				"description": "Listing of all the activities performed by all the recruiters on candidate profile and 0 view  1 is download 2 is mail sent",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "userId",
+						"in": "query",
+						"description": "",
+						"type": "string",
+						"required": true
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/recruiter/v1/recruiter/billingAddress": {
+			"put": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "update-Profile",
+				"tags": ["Billing Address"],
+				"description": "",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "body",
+						"in": "body",
+						"schema": {
+							"properties": {
+								"firstName": {
+									"description": "",
+									"type": "string",
+									"value": "",
+									"required": false
+								},
+								"lastName": {
+									"description": "",
+									"type": "string",
+									"value": "",
+									"required": false
+								},
+								"companyName": {
+									"description": "",
+									"type": "string",
+									"value": "",
+									"required": false
+								},
+								"countryCode": {
+									"description": "",
+									"type": "string",
+									"value": "",
+									"required": false
+								},
+								"phoneNumber": {
+									"description": "",
+									"type": "string",
+									"value": "",
+									"required": false
+								},
+								"address": {
+									"description": "",
+									"type": "string",
+									"value": "",
+									"required": false
+								},
+								"state": {
+									"description": "",
+									"type": "string",
+									"value": "",
+									"required": false
+								},
+								"city": {
+									"description": "",
+									"type": "string",
+									"value": "",
+									"required": false
+								},
+								"zipCode": {
+									"description": "",
+									"type": "string",
+									"value": "",
+									"required": false
+								},
+								"countryName": {
+									"description": "",
+									"type": "string",
+									"value": "",
+									"required": false
+								}
+							}
+						}
+					}
+				],
+				"responses": {}
+			},
+			"get": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "recruiter-v1-billing-address-list-get",
+				"tags": ["Billing Address"],
+				"description": "Get Billing Address by recruiter",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [],
+				"responses": {}
+			}
+		},
+		"/recruiter/v1/recruiter/state": {
+			"get": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "recruiter-v1-state-list-get",
+				"tags": ["Application Recruiter"],
+				"description": "Get State by recruiter",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [],
+				"responses": {}
+			}
+		},
+
+		"/recruiter/v1/recruiter/paymentPlan/transaction": {
+			"get": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "recruiter-v1-Payment-plan-transaction-list-get",
+				"tags": ["Recruiter Transaction"],
+				"description": "Get Recruiter Transaction by recruiter",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "limit",
+						"in": "query",
+						"description": "",
+						"type": "number",
+						"required": false
+					},
+					{
+						"name": "skip",
+						"in": "query",
+						"description": "",
+						"type": "number",
+						"required": false
+					},
+					{
+						"name": "sortBy",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "orderBy",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "search",
+						"in": "query",
+						"description": "search by PlanName",
+						"required": false,
+						"type": "string",
+						"allowReserved": true,
+						"value": ""
+					},
+					{
+						"name": "planType",
+						"in": "query",
+						"description": "0 is subcription 1 is plan",
+						"type": "number",
+						"enum": [0, 1],
+						"required": false
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/recruiter/v1/recruiter/paymentPlan/getActivePlanlist": {
+			"get": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "get-canditate-active-plan",
+				"tags": ["Recruiter Transaction"],
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [],
+				"responses": {}
+			}
+		},
+		"/recruiter/v1/recruiter/paymentPlan": {
+			"get": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "recruiter-v1-Payment-plan-list-get",
+				"tags": ["Recruiter PaymentPlan"],
+				"description": "Get Payment Plan by admin",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "planType",
+						"enum": [0, 1],
+						"description": "0 for subscription plans 1 for inventory plans",
+						"in": "query",
+						"type": "integer",
+						"required": false
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/recruiter/v1/recruiter/paymentPlan/detail/{id}": {
+			"get": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "recruiter-v1-Payment-plan-detail-{id}-get",
+				"tags": ["Recruiter PaymentPlan"],
+				"description": "Get single Payment Plan by admin",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"description": "",
+						"type": "string",
+						"format": "uuid",
+						"required": true
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/recruiter/v1/dashboard": {
+			"get": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-dashboard-stats-get",
+				"tags": ["Dashboard Management"],
+				"description": "Get Dashboard Stats by admin",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "startDate",
+						"in": "query",
+						"description": "YYYY-MM-DD",
+						"required": false,
+						"type": "date",
+						"value": ""
+					},
+					{
+						"name": "endDate",
+						"in": "query",
+						"description": "YYYY-MM-DD",
+						"required": false,
+						"type": "date",
+						"value": ""
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/recruiter/v1/users": {
+			"get": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "recruiter-v1-users-list-get",
+				"tags": ["Recruiter Users"],
+				"description": "Get recruiter users",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "limit",
+						"in": "query",
+						"description": "",
+						"type": "number",
+						"required": false
+					},
+					{
+						"name": "skip",
+						"in": "query",
+						"description": "",
+						"type": "number",
+						"required": false
+					},
+					{
+						"name": "sortBy",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "orderBy",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "search",
+						"in": "query",
+						"description": "search",
+						"required": false,
+						"type": "string",
+						"allowReserved": true,
+						"value": ""
+					},
+					{
+						"name": "isArchive",
+						"enum": [0, 1],
+						"description": "0 for users 1 for Archive users",
+						"in": "query",
+						"type": "integer",
+						"required": false
+					}
+				],
+				"responses": {}
+			},
+			"put": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "recruiter-v1-users-put",
+				"tags": ["Recruiter Users"],
+				"description": "Update recruiter users Details",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"content": "multipart/form-data",
+				"parameters": [
+					{
+						"name": "body",
+						"in": "body",
+						"schema": {
+							"properties": {
+								"id": {
+									"description": "id GUID",
+									"required": false,
+									"type": "string",
+									"value": ""
+								},
+								"fullName": {
+									"description": "fullName is required",
+									"required": true,
+									"type": "string",
+									"value": ""
+								},
+								"phoneNumber": {
+									"description": "phoneNumber is required",
+									"required": true,
+									"type": "string",
+									"value": ""
+								},
+								"title": {
+									"description": "title is required",
+									"required": true,
+									"type": "string",
+									"value": ""
+								},
+								"linkedin": {
+									"description": "linkedin is required",
+									"required": true,
+									"type": "string",
+									"value": ""
+								},
+								"assignGroupIds": {
+									"type": "array",
+									"required": false,
+									"items": {
+										"$ref": "#/definitions/assignGroupIds"
+									},
+									"example": [
+										{ "groupPermissionId": "301" },
+										{ "groupPermissionId": "302" }
+									]
+								},
+								"isArchive": {
+									"description": "0 for UnArchived Users and 1 for Archived Users",
+									"type": "integer",
+									"enum": [0, 1],
+									"required": false
+								},
+								"groupPermissions": {
+									"type": "array",
+									"required": true,
+									"items": {
+										"$ref": "#/definitions/groupPermissions"
+									}
+								}
+							}
+						}
+					}
+				],
+				"responses": {}
+			},
+			"post": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "recruiter-v1-users-post",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"tags": ["Recruiter Users"],
+				"description": "Add SuperAdmins or SubAdmins",
+				"consumes": "application/json",
+				"parameters": [
+					{
+						"name": "body",
+						"in": "body",
+						"schema": {
+							"properties": {
+								"fullName": {
+									"description": "fullName is required",
+									"required": true,
+									"type": "string",
+									"value": ""
+								},
+								"email": {
+									"description": "email is required",
+									"required": true,
+									"type": "string",
+									"value": ""
+								},
+								"phoneNumber": {
+									"description": "phoneNumber is required",
+									"required": true,
+									"type": "string",
+									"value": ""
+								},
+								"title": {
+									"description": "title is required",
+									"required": true,
+									"type": "string",
+									"value": ""
+								},
+								"linkedin": {
+									"description": "linkedin is required",
+									"required": true,
+									"type": "string",
+									"value": ""
+								},
+								"assignGroupIds": {
+									"type": "array",
+									"required": false,
+									"items": {
+										"$ref": "#/definitions/assignGroupIds"
+									},
+									"example": [
+										{ "groupPermissionId": "301" },
+										{ "groupPermissionId": "302" }
+									]
+								},
+								"groupPermissions": {
+									"type": "array",
+									"required": true,
+									"items": {
+										"$ref": "#/definitions/groupPermissions"
+									}
+								}
+							}
+						}
+					}
+				],
+				"responses": {}
+			},
+			"delete": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "recruiter-v1-users-delete",
+				"tags": ["Recruiter Users"],
+				"description": "Delete recruiter users",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "formData",
+						"description": "",
+						"type": "string",
+						"required": true
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/recruiter/v1/group-permission/manage": {
+			"get": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "recruiter-v1-users-manage-list-get",
+				"tags": ["Manage Users"],
+				"description": "Get recruiter users manage",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "query",
+						"description": "",
+						"type": "string",
+						"required": true
+					},
+					{
+						"name": "limit",
+						"in": "query",
+						"description": "",
+						"type": "number",
+						"required": false
+					},
+					{
+						"name": "skip",
+						"in": "query",
+						"description": "",
+						"type": "number",
+						"required": false
+					},
+					{
+						"name": "sortBy",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "orderBy",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "search",
+						"in": "query",
+						"description": "search",
+						"required": false,
+						"type": "string",
+						"allowReserved": true,
+						"value": ""
+					}
+				],
+				"responses": {}
+			},
+			"delete": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "recruiter-v1-users-manage-delete",
+				"tags": ["Manage Users"],
+				"description": "Delete recruiter users-manage",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "formData",
+						"description": "",
+						"type": "string",
+						"required": true
+					}
+				],
+				"responses": {}
+			},
+			"post": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "recruiter-v1-users add-manage-post",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"tags": ["Manage Users"],
+				"description": "Add SuperAdmins or SubAdmins",
+				"consumes": "application/json",
+				"parameters": [
+					{
+						"name": "body",
+						"in": "body",
+						"schema": {
+							"properties": {
+								"groupPermissionId": {
+									"description": "groupPermission is required",
+									"required": true,
+									"type": "string",
+									"value": ""
+								},
+								"userIds": {
+									"type": "array",
+									"required": false,
+									"items": {
+										"$ref": "#/definitions/userIds"
+									}
+								}
+							}
+						}
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/recruiter/v1/group-permission/manage/detail": {
+			"get": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "recruiter-v1-users-manage-detail-list-get",
+				"tags": ["Manage Users"],
+				"description": "Get recruiter users manage",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "query",
+						"description": "",
+						"type": "string",
+						"required": true
+					},
+					{
+						"name": "limit",
+						"in": "query",
+						"description": "",
+						"type": "number",
+						"required": false
+					},
+					{
+						"name": "skip",
+						"in": "query",
+						"description": "",
+						"type": "number",
+						"required": false
+					},
+					{
+						"name": "sortBy",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "orderBy",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "search",
+						"in": "query",
+						"description": "search",
+						"required": false,
+						"type": "string",
+						"allowReserved": true,
+						"value": ""
+					},
+					{
+						"name": "isArchive",
+						"enum": [0],
+						"description": "only send O",
+						"in": "query",
+						"type": "integer",
+						"required": true
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/recruiter/v1/users/detail/{id}": {
+			"get": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "recruiter-v1-users-{id}-get",
+				"tags": ["Recruiter Users"],
+				"description": "Get recruiter users details by id",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"description": "",
+						"type": "string",
+						"required": true
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/recruiter/v1/group-permission/": {
+			"get": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "recruiter-v1-getGroupPermission-list-get",
+				"tags": ["Group Permission"],
+				"description": "Get group Permission",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "limit",
+						"in": "query",
+						"description": "",
+						"type": "number",
+						"required": false
+					},
+					{
+						"name": "skip",
+						"in": "query",
+						"description": "",
+						"type": "number",
+						"required": false
+					},
+					{
+						"name": "sortBy",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "orderBy",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "search",
+						"in": "query",
+						"description": "search by groupName and groupDescription",
+						"required": false,
+						"type": "string",
+						"allowReserved": true,
+						"value": ""
+					}
+				],
+				"responses": {}
+			},
+			"put": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "recruiter-v1-group-permission-put",
+				"tags": ["Group Permission"],
+				"description": "Update Group permission Details",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"content": "multipart/form-data",
+				"parameters": [
+					{
+						"name": "body",
+						"in": "body",
+						"schema": {
+							"properties": {
+								"id": {
+									"description": "id GUID",
+									"required": false,
+									"type": "string",
+									"value": ""
+								},
+								"groupName": {
+									"description": "groupName is required",
+									"required": true,
+									"type": "string",
+									"value": ""
+								},
+								"groupDescription": {
+									"description": "Group Description",
+									"required": true,
+									"type": "string",
+									"value": ""
+								},
+								"createJob": {
+									"description": "createJob is required",
+									"required": true,
+									"type": "",
+									"enum": [0, 1],
+									"value": ""
+								},
+								"viewTeamMemberJob": {
+									"description": "viewTeamMemberJob is required",
+									"required": true,
+									"type": "",
+									"enum": [0, 1],
+									"value": ""
+								},
+								"editTeamMemberJob": {
+									"description": "editTeamMemberJob is required",
+									"required": true,
+									"type": "",
+									"enum": [0, 1],
+									"value": ""
+								},
+								"addTeamMember": {
+									"description": "addTeamMember is required",
+									"required": true,
+									"type": "",
+									"enum": [0, 1],
+									"value": ""
+								},
+								"editTeamMember": {
+									"description": "editTeamMember is required",
+									"required": true,
+									"type": "",
+									"enum": [0, 1],
+									"value": ""
+								},
+								"deleteTeamMember": {
+									"description": "deleteTeamMember is required",
+									"required": true,
+									"type": "",
+									"enum": [0, 1],
+									"value": ""
+								},
+								"viewActivePlans": {
+									"description": "viewActivePlans is required",
+									"required": true,
+									"type": "",
+									"enum": [0, 1],
+									"value": ""
+								},
+								"buyInventory": {
+									"description": "buyInventory is required",
+									"required": true,
+									"type": "",
+									"enum": [0, 1],
+									"value": ""
+								},
+								"viewInvoice": {
+									"description": "viewInvoice is required",
+									"required": true,
+									"type": "",
+									"enum": [0, 1],
+									"value": ""
+								},
+								"cancelSubscription": {
+									"description": "cancelSubscription is required",
+									"required": true,
+									"type": "",
+									"enum": [0, 1],
+									"value": ""
+								}
+							}
+						}
+					}
+				],
+				"responses": {}
+			},
+			"post": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "recruiter-v1-group-permission-post",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"tags": ["Group Permission"],
+				"description": "Add SuperAdmins or SubAdmins",
+				"consumes": "application/json",
+				"parameters": [
+					{
+						"name": "body",
+						"in": "body",
+						"schema": {
+							"properties": {
+								"groupName": {
+									"description": "groupName is required",
+									"required": true,
+									"type": "string",
+									"value": ""
+								},
+								"groupDescription": {
+									"description": "Group Description",
+									"required": true,
+									"type": "string",
+									"value": ""
+								},
+								"createJob": {
+									"description": "createJob is required",
+									"required": true,
+									"type": "",
+									"enum": [0, 1],
+									"value": ""
+								},
+								"viewTeamMemberJob": {
+									"description": "viewTeamMemberJob is required",
+									"required": true,
+									"type": "",
+									"enum": [0, 1],
+									"value": ""
+								},
+								"editTeamMemberJob": {
+									"description": "editTeamMemberJob is required",
+									"required": true,
+									"type": "",
+									"enum": [0, 1],
+									"value": ""
+								},
+								"addTeamMember": {
+									"description": "addTeamMember is required",
+									"required": true,
+									"type": "",
+									"enum": [0, 1],
+									"value": ""
+								},
+								"editTeamMember": {
+									"description": "editTeamMember is required",
+									"required": true,
+									"type": "",
+									"enum": [0, 1],
+									"value": ""
+								},
+								"deleteTeamMember": {
+									"description": "deleteTeamMember is required",
+									"required": true,
+									"type": "",
+									"enum": [0, 1],
+									"value": ""
+								},
+								"viewActivePlans": {
+									"description": "viewActivePlans is required",
+									"required": true,
+									"type": "",
+									"enum": [0, 1],
+									"value": ""
+								},
+								"buyInventory": {
+									"description": "buyInventory is required",
+									"required": true,
+									"type": "",
+									"enum": [0, 1],
+									"value": ""
+								},
+								"viewInvoice": {
+									"description": "viewInvoice is required",
+									"required": true,
+									"type": "",
+									"enum": [0, 1],
+									"value": ""
+								},
+								"cancelSubscription": {
+									"description": "cancelSubscription is required",
+									"required": true,
+									"type": "",
+									"enum": [0, 1],
+									"value": ""
+								}
+							}
+						}
+					}
+				],
+				"responses": {}
+			},
+			"delete": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "recruiter-v1-group-permission-delete",
+				"tags": ["Group Permission"],
+				"description": "Delete Group permission",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "formData",
+						"description": "",
+						"type": "string",
+						"required": true
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/recruiter/v1/group-permission/detail/{id}": {
+			"get": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-group-permission-{id}-get",
+				"tags": ["Group Permission"],
+				"description": "Get group Permission details by id",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"description": "",
+						"type": "string",
+						"required": true
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/recruiter/v1/candidate/favourite": {
+			"post": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "add-canditate-favourite",
+				"tags": ["Candidate Favourite"],
+				"description": "",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "userId",
+						"in": "formData",
+						"description": "",
+						"type": "string",
+						"format": "uuid",
+						"required": true
+					},
+					{
+						"name": "jobPostId",
+						"in": "formData",
+						"description": "",
+						"type": "string",
+						"format": "uuid",
+						"required": true
+					},
+					{
+						"name": "favourite",
+						"in": "formData",
+						"description": "o for not favourite and 1 for favourite",
+						"type": "integer",
+						"enum": [0, 1],
+						"required": true
+					}
+				],
+				"responses": {}
+			},
+			"get": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "favourite-condiate-list-get",
+				"tags": ["Candidate Favourite"],
+				"description": "Get favourite candidate",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "limit",
+						"in": "query",
+						"description": "",
+						"type": "number",
+						"required": false
+					},
+					{
+						"name": "skip",
+						"in": "query",
+						"description": "",
+						"type": "number",
+						"required": false
+					},
+					{
+						"name": "sortBy",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "orderBy",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "search",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"allowReserved": true,
+						"value": ""
+					}
+				],
+				"responses": {}
+			},
+			"put": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "user-v1-user-applyed-job-update-put",
+				"tags": ["Candidate Favourite"],
+				"description": "Update User applyed job by user",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "formData",
+						"description": "",
+						"type": "string",
+						"format": "uuid",
+						"required": true
+					},
+					{
+						"name": "favourite",
+						"in": "formData",
+						"description": "o for not favourite and 1 for favourite",
+						"type": "integer",
+						"enum": [0, 1],
+						"required": true
+					},
+					{
+						"name": "isBlocked",
+						"in": "formData",
+						"description": "",
+						"type": "integer",
+						"enum": [0, 1],
+						"required": true
+					}
+				],
+				"responses": {}
+			},
+			"delete": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "favourite-condiate-delete",
+				"tags": ["Candidate Favourite"],
+				"description": "Delete Favourite candidate",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "formData",
+						"description": "",
+						"type": "string",
+						"format": "uuid",
+						"required": true
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/recruiter/v1/candidate/favourite/{id}": {
+			"get": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "favourite-condiate-detail",
+				"tags": ["Candidate Favourite"],
+				"description": "Get specific favourite candidate detail",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"description": "",
+						"type": "string",
+						"format": "uuid",
+						"required": true
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/recruiter/v1/template": {
+			"post": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "add - template - post",
+				"tags": ["My Template"],
+				"description": "",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "subject",
+						"in": "formData",
+						"description": "added subject",
+						"type": "string",
+						"required": true
+					},
+					{
+						"name": "description",
+						"in": "formData",
+						"description": "added description",
+						"type": "string",
+						"required": true
+					},
+					{
+						"name": "action",
+						"in": "formData",
+						"description": "",
+						"type": "integer",
+						"enum": [0, 1,2,3,4],
+						"required": true
+					}
+				],
+				"responses": {}
+			},
+			"get": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "template-list-get",
+				"tags": ["My Template"],
+				"description": "Get template list",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "limit",
+						"in": "query",
+						"description": "",
+						"type": "number",
+						"required": false
+					},
+					{
+						"name": "skip",
+						"in": "query",
+						"description": "",
+						"type": "number",
+						"required": false
+					},
+					{
+						"name": "sortBy",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "orderBy",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "search",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"allowReserved": true,
+						"value": ""
+					}
+				],
+				"responses": {}
+			},
+			"put": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "template-update-put",
+				"tags": ["My Template"],
+				"description": "template",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "formData",
+						"description": "",
+						"type": "string",
+						"format": "uuid",
+						"required": true
+					},
+					{
+						"name": "subject",
+						"in": "formData",
+						"description": "added subject",
+						"type": "string",
+						"required": true
+					},
+					{
+						"name": "description",
+						"in": "formData",
+						"description": "added description",
+						"type": "string",
+						"required": true
+					},
+					{
+						"name": "isBlocked",
+						"in": "formData",
+						"description": "",
+						"type": "integer",
+						"enum": [0, 1],
+						"required": true
+					}
+				],
+				"responses": {}
+			},
+			"delete": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "template-recruiter-delete",
+				"tags": ["My Template"],
+				"description": "Delete Template recruiter",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "formData",
+						"description": "",
+						"type": "string",
+						"format": "uuid",
+						"required": true
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/recruiter/v1/template/detail/{id}": {
+			"get": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "template- recruiter-detail",
+				"tags": ["My Template"],
+				"description": "Get specific template recruiter detail",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"description": "",
+						"type": "string",
+						"format": "uuid",
+						"required": true
+					}
+				],
+				"responses": {}
+			}
+		},
+		
+		"/recruiter/v1/candidate/purchasePlan": {
+			"post": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "add-canditate-purchase-plan",
+				"tags": ["Candidate purchase plan"],
+				"description": "",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "planId",
+						"in": "formData",
+						"description": "",
+						"type": "string",
+						"format": "uuid",
+						"required": true
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/recruiter/v1/candidate/addCard": {
+			"post": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "add-canditate-card-plan",
+				"tags": ["Candidate card Add"],
+				"description": "",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "tokenId",
+						"in": "formData",
+						"description": "",
+						"type": "string",
+						"required": true
+					},
+					{
+						"name": "isSaved",
+						"in": "formData",
+						"description": "o for not save and 1 for saved",
+						"type": "integer",
+						"enum": [0, 1],
+						"required": true
+					},
+					{
+						"name": "isPrimary",
+						"in": "formData",
+						"description": "o for not primary and 1 for primary",
+						"type": "integer",
+						"enum": [0, 1],
+						"required": true
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/recruiter/v1/candidate/recruiterSubcriptionPlan": {
+			"post": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "add-canditate-sub-plan",
+				"tags": ["Candidate subcription plan"],
+				"description": "",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "subscriptionId",
+						"in": "formData",
+						"description": "active subscriptionId",
+						"type": "string",
+						"required": true
+					},
+					{
+						"name": "cardId",
+						"in": "formData",
+						"description": "user cardId",
+						"type": "string",
+						"required": true
+					},
+					{
+						"name": "promoCardId",
+						"in": "formData",
+						"description": "promoCardId subcription",
+						"type": "string",
+						"required": false
+					},
+					{
+						"name": "firstName",
+						"in": "formData",
+						"description": "firstName",
+						"type": "string",
+						"required": true
+					},
+					{
+						"name": "lastName",
+						"in": "formData",
+						"description": "lastName",
+						"type": "string",
+						"required": true
+					},
+					{
+						"name": "companyName",
+						"in": "formData",
+						"description": "companyName",
+						"type": "string",
+						"required": true
+					},
+					{
+						"name": "countryCode",
+						"in": "formData",
+						"description": "countryCode",
+						"type": "string",
+						"required": true
+					},
+					{
+						"name": "phoneNumber",
+						"in": "formData",
+						"description": "phoneNumber",
+						"type": "string",
+						"required": true
+					},
+					{
+						"name": "address",
+						"in": "formData",
+						"description": "address",
+						"type": "string",
+						"required": true
+					},
+					{
+						"name": "state",
+						"in": "formData",
+						"description": "state",
+						"type": "string",
+						"required": true
+					},
+					{
+						"name": "city",
+						"in": "formData",
+						"description": "city",
+						"type": "string",
+						"required": true
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/recruiter/v1/candidate/recruiterPurchaseInventroyPlan": {
+			"post": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "add-canditate-inventory-plan",
+				"tags": ["Candidate Inventory plan"],
+				"description": "",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "inventoryId",
+						"in": "formData",
+						"description": "active inventoryId",
+						"type": "string",
+						"required": true
+					},
+					{
+						"name": "cardId",
+						"in": "formData",
+						"description": "user cardId",
+						"type": "string",
+						"required": true
+					},
+					{
+						"name": "promoCardId",
+						"in": "formData",
+						"description": "promoCardId subcription",
+						"type": "string",
+						"required": false
+					},
+					{
+						"name": "firstName",
+						"in": "formData",
+						"description": "firstName",
+						"type": "string",
+						"required": true
+					},
+					{
+						"name": "lastName",
+						"in": "formData",
+						"description": "lastName",
+						"type": "string",
+						"required": true
+					},
+					{
+						"name": "companyName",
+						"in": "formData",
+						"description": "companyName",
+						"type": "string",
+						"required": true
+					},
+					{
+						"name": "countryCode",
+						"in": "formData",
+						"description": "countryCode",
+						"type": "string",
+						"required": true
+					},
+					{
+						"name": "phoneNumber",
+						"in": "formData",
+						"description": "phoneNumber",
+						"type": "string",
+						"required": true
+					},
+					{
+						"name": "address",
+						"in": "formData",
+						"description": "address",
+						"type": "string",
+						"required": true
+					},
+					{
+						"name": "state",
+						"in": "formData",
+						"description": "state",
+						"type": "string",
+						"required": true
+					},
+					{
+						"name": "city",
+						"in": "formData",
+						"description": "city",
+						"type": "string",
+						"required": true
+					},
+					{
+						"name": "zipCode",
+						"in": "formData",
+						"description": "zipCode",
+						"type": "string",
+						"required": true
+					},
+					{
+						"name": "countryName",
+						"in": "formData",
+						"description": "countryName",
+						"type": "string",
+						"required": true
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/recruiter/v1/candidate/cancelSubscription": {
+			"post": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "add-canditate-sub-plan",
+				"tags": ["Candidate subcription plan"],
+				"description": "",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "subscriptionId",
+						"in": "formData",
+						"description": "active subscriptionId",
+						"type": "string",
+						"required": true
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/recruiter/v1/candidate/updateCard": {
+			"put": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "add-canditate-card-plan",
+				"tags": ["Candidate card Update"],
+				"description": "",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "formData",
+						"description": "",
+						"type": "string",
+						"required": true
+					},
+					{
+						"name": "tokenId",
+						"in": "formData",
+						"description": "",
+						"type": "string",
+						"required": true
+					},
+					{
+						"name": "isSaved",
+						"in": "formData",
+						"description": "o for not save and 1 for saved",
+						"type": "integer",
+						"enum": [0, 1],
+						"required": true
+					},
+					{
+						"name": "isPrimary",
+						"in": "formData",
+						"description": "o for not primary and 1 for primary",
+						"type": "integer",
+						"enum": [0, 1],
+						"required": true
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/recruiter/v1/candidate/getAllCardlist": {
+			"get": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "add-canditate-card-plan",
+				"tags": ["Candidate Get card Add"],
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "limit",
+						"in": "query",
+						"description": "",
+						"type": "number",
+						"required": false
+					},
+					{
+						"name": "skip",
+						"in": "query",
+						"description": "",
+						"type": "number",
+						"required": false
+					},
+					{
+						"name": "sortBy",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "orderBy",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "search",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"allowReserved": true,
+						"value": ""
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/recruiter/v1/candidate/deleteCard": {
+			"delete": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "add-canditate-card-plan",
+				"tags": ["Candidate Get card Delete"],
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "formData",
+						"description": "",
+						"type": "string",
+						"format": "uuid",
+						"required": true
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/recruiter/v1/candidate/skipped": {
+			"post": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "add-canditate-Skipped",
+				"tags": ["Candidate Skipped"],
+				"description": "",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "userId",
+						"in": "formData",
+						"description": "",
+						"type": "string",
+						"format": "uuid",
+						"required": true
+					}
+				],
+				"responses": {}
+			},
+			"get": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "skipped-condiate-list-get",
+				"tags": ["Candidate Skipped"],
+				"description": "Get skipped candidate",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "limit",
+						"in": "query",
+						"description": "",
+						"type": "number",
+						"required": false
+					},
+					{
+						"name": "skip",
+						"in": "query",
+						"description": "",
+						"type": "number",
+						"required": false
+					},
+					{
+						"name": "sortBy",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "orderBy",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "search",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"allowReserved": true,
+						"value": ""
+					}
+				],
+				"responses": {}
+			},
+			"put": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "Candidate-skipped-put",
+				"tags": ["Candidate Skipped"],
+				"description": "Update skipped user",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "userId",
+						"in": "formData",
+						"description": "",
+						"type": "string",
+						"format": "uuid",
+						"required": true
+					},
+					{
+						"name": "isBlocked",
+						"in": "formData",
+						"description": "",
+						"type": "integer",
+						"enum": [0, 1],
+						"required": true
+					}
+				],
+				"responses": {}
+			},
+			"delete": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "skipped-condiate-delete",
+				"tags": ["Candidate Skipped"],
+				"description": "Delete skipped candidate",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "formData",
+						"description": "",
+						"type": "string",
+						"format": "uuid",
+						"required": true
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/recruiter/v1/candidate/skipped/{id}": {
+			"get": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "skipped-user-{id}-get",
+				"tags": ["Candidate Skipped"],
+				"description": "Get specific skipped",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"description": "",
+						"type": "string",
+						"format": "uuid",
+						"required": true
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/recruiter/v1/recruiter/paymentPlan/promoCode": {
+			"get": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "inventory-promo-{id}-get",
+				"tags": ["inventory promo"],
+				"description": "Get inventory promo code",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "promoCode",
+						"in": "query",
+						"description": "",
+						"type": "string",
+						"required": true
+					},
+					{
+						"name": "promoType",
+						"in": "query",
+						"description": "0 is subcription 1 is inventory",
+						"type": "integer",
+						"enum": [0, 1],
+						"required": true
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/recruiter/v1/recruiterSearch": {
+			"post": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "recruiter-v1-recruiterSearch-filter-data-post",
+				"tags": ["Search on Recruiter"],
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"description": "Search on recruiter",
+				"parameters": [
+					{
+						"name": "body",
+						"in": "body",
+						"schema": {
+							"properties": {
+								"limit": {
+									"in": "formData",
+									"type": "integer",
+									"required": false,
+									"value": "10"
+								},
+								"skip": {
+									"in": "formData",
+									"type": "integer",
+									"required": false,
+									"value": "0"
+								},
+								"salary": {
+									"in": "formData",
+									"type": "integer",
+									"required": false,
+									"value": "0"
+								},
+								"resumeLastUpdate": {
+									"in": "formData",
+									"type": "integer",
+									"required": false,
+									"value": "0"
+								},
+								"search":{
+									"in": "formData",
+									"description": "['industryId']",
+									"schema": {
+										"$ref": "#/definitions/industryIdmembers"
+									},
+									"example": ["test"],
+									"required": false
+								},
+								"location":{
+									"name": "location",
+									"in": "query",
+									"description": "",
+									"required": false,
+									"type": "string",
+									"allowReserved": true,
+									"value": ""
+								},
+								"willingToRelocate": {
+									"in": "formData",
+									"type": "integer",
+									"required": false,
+									"value": "0"
+								},
+								"workExperiences": {
+									"in": "formData",
+									"type": "integer",
+									"required": false,
+									"value": "0"
+								},
+								"availability": {
+									"in": "formData",
+									"type": "integer",
+									"required": false,
+									"value": "0"
+								},
+								"language": {
+									"in": "formData",
+									"description": "['industryId']",
+									"schema": {
+										"$ref": "#/definitions/industryIdmembers"
+									},
+									"example": ["English", "German","French"],
+									"required": false
+								},
+								"vaternStatus": {
+									"in": "formData",
+									"description": "['industryId']",
+									"schema": {
+										"$ref": "#/definitions/industryIdmembers"
+									},
+									"example": ["0", "1","2"],
+									"required": false
+								},
+								"industryId": {
+									"in": "formData",
+									"description": "['industryId']",
+									"schema": {
+										"$ref": "#/definitions/industryIdmembers"
+									},
+									"example": ["id1", "id2"],
+									"required": false
+								},
+								"skillId": {
+									"in": "formData",
+									"description": "['skillId']",
+									"schema": {
+										"$ref": "#/definitions/employementTypeIdmembers"
+									},
+									"example": ["id1", "id2"],
+									"required": false
+								},
+								"jobTitleId": {
+									"in": "formData",
+									"description": "['jobTitleId']",
+									"schema": {
+										"$ref": "#/definitions/categoryIdmembers"
+									},
+									"example": ["id1", "id2"],
+									"required": false
+								},
+								"specializationId": {
+									"in": "formData",
+									"description": "['specializationId']",
+									"schema": {
+										"$ref": "#/definitions/benefitsIdmembers"
+									},
+									"example": ["id1", "id2"],
+									"required": false
+								},
+								"jobPreferenceId": {
+									"in": "formData",
+									"description": "['specializationId']",
+									"schema": {
+										"$ref": "#/definitions/benefitsIdmembers"
+									},
+									"example": ["id1", "id2"],
+									"required": false
+								},
+								"travelRequirementId": {
+									"in": "formData",
+									"description": "['specializationId']",
+									"schema": {
+										"$ref": "#/definitions/benefitsIdmembers"
+									},
+									"example": ["id1", "id2"],
+									"required": false
+								},
+								"securityClearanceId": {
+									"in": "formData",
+									"description": "['specializationId']",
+									"schema": {
+										"$ref": "#/definitions/benefitsIdmembers"
+									},
+									"example": ["id1", "id2"],
+									"required": false
+								},
+								"employementTypeId": {
+									"in": "formData",
+									"description": "['specializationId']",
+									"schema": {
+										"$ref": "#/definitions/benefitsIdmembers"
+									},
+									"example": ["id1", "id2"],
+									"required": false
+								},
+								"personalityTest": {
+									"in": "formData",
+									"description": "['personalityTest']",
+									"schema": {
+										"$ref": "#/definitions/personalityTest"
+									},
+									"example": ["id", "id"],
+									"required": false
+								},
+								"excludeCandidate": {
+									"in": "formData",
+									"description": "['excludeCandidate']",
+									"schema": {
+										"$ref": "#/definitions/excludeCandidate"
+									},
+									"example": ["0 for viewed", "2 for Emailed","3 for added to the list"],
+									"required": false
+								},
+								"workPlace": {
+									"in": "formData",
+									"description": "['specializationId']",
+									"schema": {
+										"$ref": "#/definitions/benefitsIdmembers"
+									},
+									"example": ["Onsite", "Remote","Hybrid"],
+									"required": false
+								}
+								
+							}
+						}
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/recruiter/v1/recruiterSearch/saveSearch": {
+			"post": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "recruiter-v1-recruiterSearch-saveSearch-data-post",
+				"tags": ["Search on Recruiter"],
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"description": "Save Search on recruiter",
+				"parameters": [
+					{
+						"name": "body",
+						"in": "body",
+						"schema": {
+							"properties": {
+								"search":{
+									"in": "formData",
+									"description": "['industryId']",
+									"schema": {
+										"$ref": "#/definitions/industryIdmembers"
+									},
+									"example": ["test"],
+									"required": false
+								}
+							}
+						}
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/recruiter/v1/recruiterSearch/getSaveSearch": {
+			"get": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "recruiter-v1-recruiterSearch-savedSearch-get",
+				"tags": ["Search on Recruiter"],
+				"description": "Get Detail of saved search by Recruiter",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+				],
+				"responses": {}
+			}
+		},
+		"/recruiter/v1/recruiterSearch/deleteSaveSearch": {
+			"delete": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "saved-search-delete",
+				"tags": ["Search on Recruiter"],
+				"description": "Delete saved search",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "formData",
+						"description": "",
+						"type": "string",
+						"format": "",
+						"required": true
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/recruiter/v1/report/userActivity": {
+			"get": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "recruiter-v1-report-get",
+				"tags": ["Reports Management"],
+				"description": "Get Recruiter Report Users Activity",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "startDate",
+						"in": "query",
+						"description": "YYYY-MM-DD",
+						"required": false,
+						"type": "date",
+						"value": ""
+					},
+					{
+						"name": "endDate",
+						"in": "query",
+						"description": "YYYY-MM-DD",
+						"required": false,
+						"type": "date",
+						"value": ""
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/recruiter/v1/report/searchDetail": {
+			"get": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "recruiter-v1-report--searchDetail-get",
+				"tags": ["Reports Management"],
+				"description": "Get Recruiter Report Search Details",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "startDate",
+						"in": "query",
+						"description": "YYYY-MM-DD",
+						"required": false,
+						"type": "date",
+						"value": ""
+					},
+					{
+						"name": "endDate",
+						"in": "query",
+						"description": "YYYY-MM-DD",
+						"required": false,
+						"type": "date",
+						"value": ""
+					}
+				],
+				"responses": {}
+			}
+		}
+	},
+	"definitions": {
+		"skillIds": {
+			"type": "object",
+			"properties": {
+				"skillId": {
+					"type": "string"
+				}
+			},
+			"example": [{ "skillId": "id1" }, { "skillId": "id2" }]
+		},
+		"address": {
+			"type": "object",
+			"properties": {
+				"skillId": {
+					"type": "string"
+				}
+			},
+			"example": [
+				{
+					"location": "Delhi",
+					"state": "state",
+					"city": "city",
+					"zipCode": "123456",
+					"latitude": "4545",
+					"longitude": "3433"
+				},
+				{
+					"location": "Delhi",
+					"state": "state",
+					"city": "city",
+					"zipCode": "123456",
+					"latitude": "34343",
+					"longitude": "343434"
+				}
+			]
+		},
+		"personalitiesIds": {
+			"type": "object",
+			"properties": {
+				"personalitiesId": {
+					"type": "string"
+				}
+			},
+			"example": [{ "personalitiesId": "201" }, { "personalitiesId": "202" }]
+		},
+		"supplementalPayId": {
+			"type": "object",
+			"properties": {
+				"personalitiesId": {
+					"type": "string"
+				}
+			},
+			"example": [
+				{ "supplementalPayId": "201" },
+				{ "supplementalPayId": "202" }
+			]
+		},
+		"jobEligibleForId": {
+			"type": "object",
+			"properties": {
+				"jobEligibleForId": {
+					"type": "string"
+				}
+			},
+			"example": [{ "jobEligibleForId": "201" }, { "jobEligibleForId": "202" }]
+		},
+		"subCategoryId": {
+			"type": "object",
+			"properties": {
+				"jobEligibleForId": {
+					"type": "string"
+				}
+			},
+			"example": [	{ "categoryId": "201","subCategoryId":"1234","others":"if there is text field option then use it other wise no need to send this key" },
+			{ "categoryId": "201","subCategoryId":"1234","others":"if there is text field option then use it other wise no need to send this key" }
+		]
+		},
+		"emailsIds": {
+			"type": "object",
+			"properties": {
+				"emailId": {
+					"type": "string"
+				}
+			},
+			"example": [
+				{ "emailId": "abc.k@applify.co" },
+				{ "emailId": "xyz.l@applify.co" }
+			]
+		},
+		"benefitsIds": {
+			"type": "object",
+			"properties": {
+				"benefitsId": {
+					"type": "string"
+				}
+			},
+			"example": [{ "benefitsId": "301" }, { "benefitsId": "302" }]
+		},
+		"assignGroupIds": {
+			"type": "object",
+			"properties": {
+				"groupPermissionId": {
+					"type": "string"
+				}
+			},
+			"example": [
+				{ "groupPermissionId": "301" },
+				{ "groupPermissionId": "302" }
+			]
+		},
+
+		"addCustomQuestion": {
+			"type": "object",
+			"properties": {
+				"addScreeningQuestionId": {
+					"type": "string"
+				},
+				"title": {
+					"type": "string"
+				},
+				"experience": {
+					"type": "string"
+				},
+				"responseType": {
+					"type": "string"
+				},
+				"answer": {
+					"type": "string"
+				}
+			},
+			"example": {
+				"addScreeningQuestionId": "467430cb-74b8-462e-82c8-040ba77b5674",
+				"title": "test",
+				"experience": "2 year",
+				"responseType": "yes",
+				"answer": "text"
+			}
+		},
+		"industryIdmembers": {
+			"type": "array",
+			"example": ["id1", "id2"]
+		},
+
+		"employementTypeIdmembers": {
+			"type": "array",
+			"items": {
+				"type": "string"
+			},
+			"example": ["id1", "id2"]
+		},
+		"categoryIdmembers": {
+			"type": "array",
+			"items": {
+				"type": "string"
+			},
+			"example": ["id1", "id2"]
+		},
+		"benefitsIdmembers": {
+			"type": "array",
+			"items": {
+				"type": "string"
+			},
+			"example": ["id1", "id2"]
+		},
+		"personalityTest": {
+			"type": "array",
+			"items": {
+				"type": "string"
+			},
+			"example": ["id", "id"]
+		},
+		"excludeCandidate": {
+			"type": "array",
+			"items": {
+				"type": "string"
+			},
+			"example": ["0 for viewed", "2 for Emailed","3 for added to the list"]						
+		},
+		"personalitiesIdmembers": {
+			"type": "array",
+			"items": {
+				"type": "string"
+			},
+			"example": ["id1", "id2"]
+		},
+		"travelRequirementIdmembers": {
+			"type": "array",
+			"items": {
+				"type": "string"
+			},
+			"example": ["id1", "id2"]
+		},
+		"jobEligibleForIdmembers": {
+			"type": "array",
+			"items": {
+				"type": "string"
+			},
+			"example": ["id1", "id2"]
+		},
+		"scheduleIdmembers": {
+			"type": "array",
+			"items": {
+				"type": "string"
+			},
+			"example": ["id1", "id2"]
+		},
+		"workPlaceLocationmembers": {
+			"type": "array",
+			"items": {
+				"type": "string"
+			},
+			"example": ["id1", "id2"]
+		},
+		"companyName": {
+			"type": "array",
+			"items": {
+				"type": "string"
+			},
+			"example": ["abc", "def"]
+		},
+
+		"accessPermissions": {
+			"type": "object",
+			"properties": {
+				"module": {
+					"type": "string"
+				},
+				"permission": {
+					"enum": [1, 0],
+					"description": "0 or 1 to set permission",
+					"type": "integer"
+				}
+			},
+			"example": {
+				"module": "dashboard",
+				"permission": 1
+			}
+		},
+		"groupPermissions": {
+			"type": "object",
+			"properties": {
+				"module": {
+					"type": "string"
+				},
+				"permission": {
+					"enum": [1, 0],
+					"description": "0 or 1 to set permission",
+					"type": "integer"
+				}
+			},
+			"example": {
+				"module": "createJob",
+				"permission": 1
+			}
+		},
+		"userIds": {
+			"type": "object",
+			"properties": {
+				"module": {
+					"type": "string"
+				},
+				"permission": {
+					"enum": [1, 0],
+					"description": "0 or 1 to set permission",
+					"type": "integer"
+				}
+			},
+			"example": {
+				"recruiterUserId": "1234",
+				"select": 1
+			}
+		}
+	}
+}

@@ -1,0 +1,6009 @@
+{
+	"swagger": "2.0",
+	"info": {
+		"title": "HonorVet - Admin API",
+		"description": "HonorVet - Admin API Documentation",
+		"version": "1.0"
+	},
+	"produces": ["application/json"],
+	"basePath": "/",
+	"securityDefinitions": {
+		"Bearer": {
+			"type": "apiKey",
+			"name": "authorization",
+			"in": "header"
+		}
+	},
+	"paths": {
+		"/admin/v1/common/getSignedURL": {
+			"post": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-user-common-getSignedURL-post",
+				"tags": ["Admin Common"],
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"description": "Get S3 signed url to upload file on s3",
+				"parameters": [
+					{
+						"name": "directory",
+						"in": "formData",
+						"description": "Directory in s3 for particular file",
+						"type": "string",
+						"value": "",
+						"required": true
+					},
+					{
+						"name": "fileName",
+						"in": "formData",
+						"description": "Filename of file on client device",
+						"type": "string",
+						"value": "",
+						"required": true
+					},
+					{
+						"name": "contentType",
+						"in": "formData",
+						"description": "contentType of file, if file is not an image",
+						"type": "string",
+						"value": "",
+						"required": false
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/admin/v1/common/s3folders": {
+			"get": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-common-s3folders-get",
+				"tags": ["Admin Common"],
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"description": "Get S3 folders",
+				"parameters": [],
+				"responses": {}
+			}
+		},
+		"/admin/v1/admin/login": {
+			"post": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-admin-login-post",
+				"tags": ["Auth"],
+				"description": "Admin Login...",
+				"parameters": [
+					{
+						"name": "email",
+						"in": "formData",
+						"description": "email is required",
+						"required": true,
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "password",
+						"in": "formData",
+						"description": "password is required",
+						"required": true,
+						"type": "string",
+						"value": ""
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/admin/v1/admin/logout": {
+			"put": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-admin-logout-put",
+				"tags": ["Auth"],
+				"description": "Logout Admin..",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [],
+				"responses": {}
+			}
+		},
+		"/admin/v1/admin/forgot-password": {
+			"post": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-admin-forgot-password-post",
+				"tags": ["Auth"],
+				"description": "Forgot Password..",
+				"parameters": [
+					{
+						"name": "email",
+						"in": "formData",
+						"description": "email is required",
+						"required": true,
+						"type": "string",
+						"value": ""
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/admin/v1/admin/reset-Password": {
+			"put": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-admin-reset-Password-put",
+				"tags": ["Auth"],
+				"description": "Reset Password",
+				"parameters": [
+					{
+						"name": "token",
+						"in": "formData",
+						"description": "token is required",
+						"required": true,
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "newPassword",
+						"in": "formData",
+						"description": "newPassword is required",
+						"required": true,
+						"type": "string",
+						"value": ""
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/admin/v1/admin/list": {
+			"get": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-admin-list-put",
+				"tags": ["Sub Admin"],
+				"description": "List All SuperAdmins and SubAmdins",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "limit",
+						"description": "Limit",
+						"in": "query",
+						"required": true,
+						"type": "integer",
+						"value": "10"
+					},
+					{
+						"name": "skip",
+						"description": "Skip",
+						"in": "query",
+						"required": true,
+						"type": "integer",
+						"value": "0"
+					},
+					{
+						"name": "sortBy",
+						"description": "sort by",
+						"in": "query",
+						"required": false,
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "orderBy",
+						"description": "order by",
+						"in": "query",
+						"required": false,
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "search",
+						"in": "query",
+						"description": "Search",
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "isBlocked",
+						"enum": [0, 1],
+						"description": "Blocked admin users",
+						"in": "query",
+						"type": "integer",
+						"required": false
+					},
+					{
+						"name": "isActive",
+						"in": "query",
+						"enum": [0, 1],
+						"description": "Active admin users",
+						"type": "integer",
+						"required": false
+					},
+					{
+						"name": "adminType",
+						"enum": ["SUPER_ADMIN", "SUB_ADMIN"],
+						"description": "",
+						"in": "query",
+						"type": "string",
+						"required": false
+					},
+					{
+						"name": "accessPermissions",
+						"in": "query",
+						"type": "string",
+						"required": false
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/admin/v1/admin/": {
+			"put": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-admin-put",
+				"tags": ["Sub Admin"],
+				"description": "Update Admin Details",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"content": "multipart/form-data",
+				"parameters": [
+					{
+						"name": "body",
+						"in": "body",
+						"schema": {
+							"properties": {
+								"id": {
+									"description": "id GUID",
+									"required": false,
+									"type": "string",
+									"value": ""
+								},
+								"email": {
+									"description": "email",
+									"required": false,
+									"type": "string",
+									"value": ""
+								},
+								"firstName": {
+									"description": "First Name",
+									"required": false,
+									"type": "string",
+									"value": ""
+								},
+								"lastName": {
+									"description": "Last Name",
+									"type": "string",
+									"value": ""
+								},
+								"adminType": {
+									"enum": ["SUPER_ADMIN", "SUB_ADMIN"],
+									"description": "",
+									"type": "string",
+									"required": false
+								},
+								"accessPermissions": {
+									"type": "array",
+									"required": false,
+									"items": {
+										"$ref": "#/definitions/accessPermissions"
+									}
+								}
+							}
+						}
+					}
+				],
+				"responses": {}
+			},
+			"post": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-admin-post",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"tags": ["Sub Admin"],
+				"description": "Add SuperAdmins or SubAdmins",
+				"consumes": "application/json",
+				"parameters": [
+					{
+						"name": "body",
+						"in": "body",
+						"schema": {
+							"properties": {
+								"email": {
+									"description": "email is required",
+									"required": true,
+									"type": "string",
+									"value": ""
+								},
+								"firstName": {
+									"description": "First Name",
+									"required": true,
+									"type": "string",
+									"value": ""
+								},
+								"lastName": {
+									"description": "Last Name",
+									"type": "string",
+									"value": ""
+								},
+								"adminType": {
+									"enum": ["SUPER_ADMIN", "SUB_ADMIN"],
+									"description": "",
+									"type": "string",
+									"required": true
+								},
+								"accessPermissions": {
+									"type": "array",
+									"required": true,
+									"items": {
+										"$ref": "#/definitions/accessPermissions"
+									}
+								}
+							}
+						}
+					}
+				],
+				"responses": {}
+			},
+			"delete": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-admin-delete",
+				"tags": ["Sub Admin"],
+				"description": "Delete Admin",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "formData",
+						"description": "",
+						"type": "string",
+						"required": true
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/admin/v1/admin/adminDetail/{id}": {
+			"get": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-admin-{id}-get",
+				"tags": ["Sub Admin"],
+				"description": "Get admin details by id",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"description": "",
+						"type": "string",
+						"required": true
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/admin/v1/admin/block": {
+			"put": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-admin-block-put",
+				"tags": ["Sub Admin"],
+				"description": "Block Admin",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "formData",
+						"description": "",
+						"type": "string",
+						"required": true
+					},
+					{
+						"name": "isBlocked",
+						"in": "formData",
+						"description": "",
+						"enum": [0, 1],
+						"type": "integer",
+						"required": true
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/admin/v1/admin/profile": {
+			"get": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-admin-profile-get",
+				"tags": ["Sub Admin"],
+				"description": "Get admin profile",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [],
+				"responses": {}
+			}
+		},
+		"/admin/v1/admin/edit-profile": {
+			"put": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-admin-edit-profile-put",
+				"tags": ["Sub Admin"],
+				"description": "Update Profile of admin",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "firstName",
+						"in": "formData",
+						"description": "",
+						"type": "string",
+						"required": false
+					},
+					{
+						"name": "lastName",
+						"in": "formData",
+						"description": "",
+						"type": "string",
+						"required": false
+					},
+					{
+						"name": "image",
+						"in": "formData",
+						"description": "",
+						"type": "string",
+						"required": false
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/admin/v1/admin/profile/change-password": {
+			"put": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-admin-profile-change-password-put",
+				"tags": ["Sub Admin"],
+				"description": "Change Password",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "password",
+						"in": "formData",
+						"description": "password is required",
+						"required": true,
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "oldPassword",
+						"in": "formData",
+						"description": "oldPassword is required",
+						"required": true,
+						"type": "string",
+						"value": ""
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/admin/v1/services/": {
+			"post": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-adminservices-create-POST",
+				"tags": ["Services"],
+				"description": "Add service by admin",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "name",
+						"in": "formData",
+						"description": "name is required",
+						"type": "string",
+						"value": "",
+						"required": true
+					}
+				],
+				"responses": {}
+			},
+			"get": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-adminservices-list-get",
+				"tags": ["Services"],
+				"description": "Get services by admin",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "limit",
+						"in": "query",
+						"description": "",
+						"type": "number",
+						"required": false
+					},
+					{
+						"name": "skip",
+						"in": "query",
+						"description": "",
+						"type": "number",
+						"required": false
+					},
+					{
+						"name": "sortBy",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "orderBy",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "search",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"allowReserved": true,
+						"value": ""
+					}
+				],
+				"responses": {}
+			},
+			"put": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-adminservices-update-put",
+				"tags": ["Services"],
+				"description": "Update service by admin",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "formData",
+						"description": "",
+						"type": "string",
+						"format": "uuid",
+						"required": true
+					},
+					{
+						"name": "name",
+						"in": "formData",
+						"description": "name is required",
+						"type": "string",
+						"value": "",
+						"required": false
+					},
+					{
+						"name": "isBlocked",
+						"in": "formData",
+						"description": "",
+						"type": "number",
+						"required": false
+					}
+				],
+				"responses": {}
+			},
+			"delete": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-adminservices-delete-delete",
+				"tags": ["Services"],
+				"description": "Delete service by admin",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "formData",
+						"description": "",
+						"type": "string",
+						"format": "uuid",
+						"required": true
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/admin/v1/services/detail/{id}": {
+			"get": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-adminservices-detail-{id}-get",
+				"tags": ["Services"],
+				"description": "Get single service by admin",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"description": "",
+						"type": "string",
+						"format": "uuid",
+						"required": true
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/admin/v1/universities/": {
+			"post": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-adminuniversities-create-POST",
+				"tags": ["Universities"],
+				"description": "Add universities by admin",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "name",
+						"in": "formData",
+						"description": "name is required",
+						"type": "string",
+						"value": "",
+						"required": true
+					}
+				],
+				"responses": {}
+			},
+			"get": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-adminuniversities-list-get",
+				"tags": ["Universities"],
+				"description": "Get universities by admin",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "limit",
+						"in": "query",
+						"description": "",
+						"type": "number",
+						"required": false
+					},
+					{
+						"name": "skip",
+						"in": "query",
+						"description": "",
+						"type": "number",
+						"required": false
+					},
+					{
+						"name": "sortBy",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "orderBy",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "search",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"allowReserved": true,
+						"value": ""
+					}
+				],
+				"responses": {}
+			},
+			"put": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-adminuniversities-update-put",
+				"tags": ["Universities"],
+				"description": "Update universities by admin",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "formData",
+						"description": "",
+						"type": "string",
+						"format": "uuid",
+						"required": true
+					},
+					{
+						"name": "name",
+						"in": "formData",
+						"description": "name is required",
+						"type": "string",
+						"value": "",
+						"required": false
+					},
+					{
+						"name": "isBlocked",
+						"in": "formData",
+						"description": "",
+						"type": "number",
+						"required": false
+					}
+				],
+				"responses": {}
+			},
+			"delete": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-adminuniversities-delete-delete",
+				"tags": ["Universities"],
+				"description": "Delete universities by admin",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "formData",
+						"description": "",
+						"type": "string",
+						"format": "uuid",
+						"required": true
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/admin/v1/universities/detail/{id}": {
+			"get": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-adminuniversities-detail-{id}-get",
+				"tags": ["Universities"],
+				"description": "Get single universities by admin",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"description": "",
+						"type": "string",
+						"format": "uuid",
+						"required": true
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/admin/v1/employmentTypes/": {
+			"post": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-adminemploymentTypes-create-POST",
+				"tags": ["Employment Types"],
+				"description": "Add employmentTypes by admin",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "name",
+						"in": "formData",
+						"description": "name is required",
+						"type": "string",
+						"value": "",
+						"required": true
+					}
+				],
+				"responses": {}
+			},
+			"get": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-adminemploymentTypes-list-get",
+				"tags": ["Employment Types"],
+				"description": "Get employmentTypes by admin",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "limit",
+						"in": "query",
+						"description": "",
+						"type": "number",
+						"required": false
+					},
+					{
+						"name": "skip",
+						"in": "query",
+						"description": "",
+						"type": "number",
+						"required": false
+					},
+					{
+						"name": "sortBy",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "orderBy",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "search",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"allowReserved": true,
+						"value": ""
+					}
+				],
+				"responses": {}
+			},
+			"put": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-adminemploymentTypes-update-put",
+				"tags": ["Employment Types"],
+				"description": "Update employmentTypes by admin",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "formData",
+						"description": "",
+						"type": "string",
+						"format": "uuid",
+						"required": true
+					},
+					{
+						"name": "name",
+						"in": "formData",
+						"description": "name is required",
+						"type": "string",
+						"value": "",
+						"required": false
+					},
+					{
+						"name": "isBlocked",
+						"in": "formData",
+						"description": "",
+						"type": "number",
+						"required": false
+					}
+				],
+				"responses": {}
+			},
+			"delete": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-adminemploymentTypes-delete-delete",
+				"tags": ["Employment Types"],
+				"description": "Delete employmentTypes by admin",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "formData",
+						"description": "",
+						"type": "string",
+						"format": "uuid",
+						"required": true
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/admin/v1/employmentTypes/detail/{id}": {
+			"get": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-adminemploymentTypes-detail-{id}-get",
+				"tags": ["Employment Types"],
+				"description": "Get single employmentTypes by admin",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"description": "",
+						"type": "string",
+						"format": "uuid",
+						"required": true
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/admin/v1/specializations/": {
+			"post": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-adminspecializations-create-POST",
+				"tags": ["Specializations"],
+				"description": "Add specializations by admin",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "name",
+						"in": "formData",
+						"description": "name is required",
+						"type": "string",
+						"value": "",
+						"required": true
+					}
+				],
+				"responses": {}
+			},
+			"get": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-adminspecializations-list-get",
+				"tags": ["Specializations"],
+				"description": "Get specializations by admin",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "limit",
+						"in": "query",
+						"description": "",
+						"type": "number",
+						"required": false
+					},
+					{
+						"name": "skip",
+						"in": "query",
+						"description": "",
+						"type": "number",
+						"required": false
+					},
+					{
+						"name": "sortBy",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "orderBy",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "search",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"allowReserved": true,
+						"value": ""
+					}
+				],
+				"responses": {}
+			},
+			"put": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-adminspecializations-update-put",
+				"tags": ["Specializations"],
+				"description": "Update specializations by admin",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "formData",
+						"description": "",
+						"type": "string",
+						"format": "uuid",
+						"required": true
+					},
+					{
+						"name": "name",
+						"in": "formData",
+						"description": "name is required",
+						"type": "string",
+						"value": "",
+						"required": false
+					},
+					{
+						"name": "isBlocked",
+						"in": "formData",
+						"description": "",
+						"type": "number",
+						"required": false
+					}
+				],
+				"responses": {}
+			},
+			"delete": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-adminspecializations-delete-delete",
+				"tags": ["Specializations"],
+				"description": "Delete specializations by admin",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "formData",
+						"description": "",
+						"type": "string",
+						"format": "uuid",
+						"required": true
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/admin/v1/specializations/detail/{id}": {
+			"get": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-adminspecializations-detail-{id}-get",
+				"tags": ["Specializations"],
+				"description": "Get single employmentTypes by admin",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"description": "",
+						"type": "string",
+						"format": "uuid",
+						"required": true
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/admin/v1/skills/": {
+			"post": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-adminskills-create-POST",
+				"tags": ["Skills"],
+				"description": "Add skills by admin",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "name",
+						"in": "formData",
+						"description": "name is required",
+						"type": "string",
+						"value": "",
+						"required": true
+					}
+				],
+				"responses": {}
+			},
+			"get": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-adminskills-list-get",
+				"tags": ["Skills"],
+				"description": "Get skills by admin",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "limit",
+						"in": "query",
+						"description": "",
+						"type": "number",
+						"required": false
+					},
+					{
+						"name": "skip",
+						"in": "query",
+						"description": "",
+						"type": "number",
+						"required": false
+					},
+					{
+						"name": "sortBy",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "orderBy",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "search",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"allowReserved": true,
+						"value": ""
+					}
+				],
+				"responses": {}
+			},
+			"put": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-adminSkills-update-put",
+				"tags": ["Skills"],
+				"description": "Update skills by admin",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "formData",
+						"description": "",
+						"type": "string",
+						"format": "uuid",
+						"required": true
+					},
+					{
+						"name": "name",
+						"in": "formData",
+						"description": "name is required",
+						"type": "string",
+						"value": "",
+						"required": false
+					},
+					{
+						"name": "isBlocked",
+						"in": "formData",
+						"description": "",
+						"type": "number",
+						"required": false
+					}
+				],
+				"responses": {}
+			},
+			"delete": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-adminskills-delete-delete",
+				"tags": ["Skills"],
+				"description": "Delete skills by admin",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "formData",
+						"description": "",
+						"type": "string",
+						"format": "uuid",
+						"required": true
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/admin/v1/skills/detail/{id}": {
+			"get": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-adminsskills-detail-{id}-get",
+				"tags": ["Skills"],
+				"description": "Get single skills by admin",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"description": "",
+						"type": "string",
+						"format": "uuid",
+						"required": true
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/admin/v1/benefits/": {
+			"post": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-adminbenefits-create-POST",
+				"tags": ["Benefits"],
+				"description": "Add Benefits by admin",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "name",
+						"in": "formData",
+						"description": "name is required",
+						"type": "string",
+						"value": "",
+						"required": true
+					}
+				],
+				"responses": {}
+			},
+			"get": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-adminbenefits-list-get",
+				"tags": ["Benefits"],
+				"description": "Get benefits by admin",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "limit",
+						"in": "query",
+						"description": "",
+						"type": "number",
+						"required": false
+					},
+					{
+						"name": "skip",
+						"in": "query",
+						"description": "",
+						"type": "number",
+						"required": false
+					},
+					{
+						"name": "sortBy",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "orderBy",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "search",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"allowReserved": true,
+						"value": ""
+					}
+				],
+				"responses": {}
+			},
+			"put": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-adminBenefits-update-put",
+				"tags": ["Benefits"],
+				"description": "Update benefits by admin",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "formData",
+						"description": "",
+						"type": "string",
+						"format": "uuid",
+						"required": true
+					},
+					{
+						"name": "name",
+						"in": "formData",
+						"description": "name is required",
+						"type": "string",
+						"value": "",
+						"required": false
+					},
+					{
+						"name": "isBlocked",
+						"in": "formData",
+						"description": "",
+						"type": "number",
+						"required": false
+					}
+				],
+				"responses": {}
+			},
+			"delete": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-adminbenefits-delete-delete",
+				"tags": ["Benefits"],
+				"description": "Delete benefits by admin",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "formData",
+						"description": "",
+						"type": "string",
+						"format": "uuid",
+						"required": true
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/admin/v1/benefits/detail/{id}": {
+			"get": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-adminbenefits-detail-{id}-get",
+				"tags": ["Benefits"],
+				"description": "Get single Benefits by admin",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"description": "",
+						"type": "string",
+						"format": "uuid",
+						"required": true
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/admin/v1/schedules/": {
+			"post": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-adminSchedules-create-POST",
+				"tags": ["Schedules"],
+				"description": "Add Schedules by admin",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "name",
+						"in": "formData",
+						"description": "name is required",
+						"type": "string",
+						"value": "",
+						"required": true
+					}
+				],
+				"responses": {}
+			},
+			"get": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-adminSchedules-list-get",
+				"tags": ["Schedules"],
+				"description": "Get Schedules by admin",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "limit",
+						"in": "query",
+						"description": "",
+						"type": "number",
+						"required": false
+					},
+					{
+						"name": "skip",
+						"in": "query",
+						"description": "",
+						"type": "number",
+						"required": false
+					},
+					{
+						"name": "sortBy",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "orderBy",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "search",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"allowReserved": true,
+						"value": ""
+					}
+				],
+				"responses": {}
+			},
+			"put": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-adminSchedules-update-put",
+				"tags": ["Schedules"],
+				"description": "Update Schedules by admin",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "formData",
+						"description": "",
+						"type": "string",
+						"format": "uuid",
+						"required": true
+					},
+					{
+						"name": "name",
+						"in": "formData",
+						"description": "name is required",
+						"type": "string",
+						"value": "",
+						"required": false
+					},
+					{
+						"name": "isBlocked",
+						"in": "formData",
+						"description": "",
+						"type": "number",
+						"required": false
+					}
+				],
+				"responses": {}
+			},
+			"delete": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-adminSchedules-delete-delete",
+				"tags": ["Schedules"],
+				"description": "Delete Schedules by admin",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "formData",
+						"description": "",
+						"type": "string",
+						"format": "uuid",
+						"required": true
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/admin/v1/schedules/detail/{id}": {
+			"get": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-adminSchedules-detail-{id}-get",
+				"tags": ["Schedules"],
+				"description": "Get single Schedules by admin",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"description": "",
+						"type": "string",
+						"format": "uuid",
+						"required": true
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/admin/v1/supplements/": {
+			"post": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-adminsupplements-create-POST",
+				"tags": ["Supplements"],
+				"description": "Add Supplements by admin",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "name",
+						"in": "formData",
+						"description": "name is required",
+						"type": "string",
+						"value": "",
+						"required": true
+					}
+				],
+				"responses": {}
+			},
+			"get": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-adminsupplements-list-get",
+				"tags": ["Supplements"],
+				"description": "Get Supplements by admin",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "limit",
+						"in": "query",
+						"description": "",
+						"type": "number",
+						"required": false
+					},
+					{
+						"name": "skip",
+						"in": "query",
+						"description": "",
+						"type": "number",
+						"required": false
+					},
+					{
+						"name": "sortBy",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "orderBy",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "search",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"allowReserved": true,
+						"value": ""
+					}
+				],
+				"responses": {}
+			},
+			"put": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-adminsupplements-update-put",
+				"tags": ["Supplements"],
+				"description": "Update Supplements by admin",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "formData",
+						"description": "",
+						"type": "string",
+						"format": "uuid",
+						"required": true
+					},
+					{
+						"name": "name",
+						"in": "formData",
+						"description": "name is required",
+						"type": "string",
+						"value": "",
+						"required": false
+					},
+					{
+						"name": "isBlocked",
+						"in": "formData",
+						"description": "",
+						"type": "number",
+						"required": false
+					}
+				],
+				"responses": {}
+			},
+			"delete": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-adminSchedules-delete-delete",
+				"tags": ["Supplements"],
+				"description": "Delete Supplements by admin",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "formData",
+						"description": "",
+						"type": "string",
+						"format": "uuid",
+						"required": true
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/admin/v1/supplements/detail/{id}": {
+			"get": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-adminsupplements-detail-{id}-get",
+				"tags": ["Supplements"],
+				"description": "Get single Supplements by admin",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"description": "",
+						"type": "string",
+						"format": "uuid",
+						"required": true
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/admin/v1/eligible/": {
+			"post": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-admineligible-create-POST",
+				"tags": ["Eligible"],
+				"description": "Add Eligible by admin",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "name",
+						"in": "formData",
+						"description": "name is required",
+						"type": "string",
+						"value": "",
+						"required": true
+					}
+				],
+				"responses": {}
+			},
+			"get": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-adminEligible-list-get",
+				"tags": ["Eligible"],
+				"description": "Get Eligible by admin",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "limit",
+						"in": "query",
+						"description": "",
+						"type": "number",
+						"required": false
+					},
+					{
+						"name": "skip",
+						"in": "query",
+						"description": "",
+						"type": "number",
+						"required": false
+					},
+					{
+						"name": "sortBy",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "orderBy",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "search",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"allowReserved": true,
+						"value": ""
+					}
+				],
+				"responses": {}
+			},
+			"put": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-adminEligible-update-put",
+				"tags": ["Eligible"],
+				"description": "Update Eligible by admin",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "formData",
+						"description": "",
+						"type": "string",
+						"format": "uuid",
+						"required": true
+					},
+					{
+						"name": "name",
+						"in": "formData",
+						"description": "name is required",
+						"type": "string",
+						"value": "",
+						"required": false
+					},
+					{
+						"name": "isBlocked",
+						"in": "formData",
+						"description": "",
+						"type": "number",
+						"required": false
+					}
+				],
+				"responses": {}
+			},
+			"delete": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-adminEligible-delete-delete",
+				"tags": ["Eligible"],
+				"description": "Delete Eligible by admin",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "formData",
+						"description": "",
+						"type": "string",
+						"format": "uuid",
+						"required": true
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/admin/v1/eligible/detail/{id}": {
+			"get": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-adminEligible-detail-{id}-get",
+				"tags": ["Eligible"],
+				"description": "Get single Eligible by admin",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"description": "",
+						"type": "string",
+						"format": "uuid",
+						"required": true
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/admin/v1/personalities/": {
+			"post": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-adminpersonalities-create-POST",
+				"tags": ["Personalities"],
+				"description": "Add Personalities by admin",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "name",
+						"in": "formData",
+						"description": "name is required",
+						"type": "string",
+						"value": "",
+						"required": true
+					}
+				],
+				"responses": {}
+			},
+			"get": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-adminPersonalities-list-get",
+				"tags": ["Personalities"],
+				"description": "Get Personalities by admin",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "limit",
+						"in": "query",
+						"description": "",
+						"type": "number",
+						"required": false
+					},
+					{
+						"name": "skip",
+						"in": "query",
+						"description": "",
+						"type": "number",
+						"required": false
+					},
+					{
+						"name": "sortBy",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "orderBy",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "search",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"allowReserved": true,
+						"value": ""
+					}
+				],
+				"responses": {}
+			},
+			"put": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-adminPersonalities-update-put",
+				"tags": ["Personalities"],
+				"description": "Update Personalities by admin",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "formData",
+						"description": "",
+						"type": "string",
+						"format": "uuid",
+						"required": true
+					},
+					{
+						"name": "name",
+						"in": "formData",
+						"description": "name is required",
+						"type": "string",
+						"value": "",
+						"required": false
+					},
+					{
+						"name": "isBlocked",
+						"in": "formData",
+						"description": "",
+						"type": "number",
+						"required": false
+					}
+				],
+				"responses": {}
+			},
+			"delete": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-adminPersonalities-delete-delete",
+				"tags": ["Personalities"],
+				"description": "Delete Personalities by admin",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "formData",
+						"description": "",
+						"type": "string",
+						"format": "uuid",
+						"required": true
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/admin/v1/personalities/detail/{id}": {
+			"get": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-adminPersonalities-detail-{id}-get",
+				"tags": ["Personalities"],
+				"description": "Get single Personalities by admin",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"description": "",
+						"type": "string",
+						"format": "uuid",
+						"required": true
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/admin/v1/hire/": {
+			"post": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-adminHire-create-POST",
+				"tags": ["Hire"],
+				"description": "Add Hire by admin",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "name",
+						"in": "formData",
+						"description": "name is required",
+						"type": "string",
+						"value": "",
+						"required": true
+					}
+				],
+				"responses": {}
+			},
+			"get": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-adminHire-list-get",
+				"tags": ["Hire"],
+				"description": "Get Hire by admin",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "limit",
+						"in": "query",
+						"description": "",
+						"type": "number",
+						"required": false
+					},
+					{
+						"name": "skip",
+						"in": "query",
+						"description": "",
+						"type": "number",
+						"required": false
+					},
+					{
+						"name": "sortBy",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "orderBy",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "search",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"allowReserved": true,
+						"value": ""
+					}
+				],
+				"responses": {}
+			},
+			"put": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-adminHire-update-put",
+				"tags": ["Hire"],
+				"description": "Update Hire by admin",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "formData",
+						"description": "",
+						"type": "string",
+						"format": "uuid",
+						"required": true
+					},
+					{
+						"name": "name",
+						"in": "formData",
+						"description": "name is required",
+						"type": "string",
+						"value": "",
+						"required": false
+					},
+					{
+						"name": "isBlocked",
+						"in": "formData",
+						"description": "",
+						"type": "number",
+						"required": false
+					}
+				],
+				"responses": {}
+			},
+			"delete": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-adminHire-delete-delete",
+				"tags": ["Hire"],
+				"description": "Delete Hire by admin",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "formData",
+						"description": "",
+						"type": "string",
+						"format": "uuid",
+						"required": true
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/admin/v1/hire/detail/{id}": {
+			"get": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-adminHire-detail-{id}-get",
+				"tags": ["Hire"],
+				"description": "Get single Hire by admin",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"description": "",
+						"type": "string",
+						"format": "uuid",
+						"required": true
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/admin/v1/securityClearence/": {
+			"post": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-admin-securityClearence-create-POST",
+				"tags": ["Security Clearence"],
+				"description": "Add securityClearence by admin",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "name",
+						"in": "formData",
+						"description": "name is required",
+						"type": "string",
+						"value": "",
+						"required": true
+					}
+				],
+				"responses": {}
+			},
+			"get": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-admin-securityClearence-list-get",
+				"tags": ["Security Clearence"],
+				"description": "Get securityClearence by admin",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "limit",
+						"in": "query",
+						"description": "",
+						"type": "number",
+						"required": false
+					},
+					{
+						"name": "skip",
+						"in": "query",
+						"description": "",
+						"type": "number",
+						"required": false
+					},
+					{
+						"name": "sortBy",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "orderBy",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "search",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"allowReserved": true,
+						"value": ""
+					}
+				],
+				"responses": {}
+			},
+			"put": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-admin-securityClearence-update-put",
+				"tags": ["Security Clearence"],
+				"description": "Update securityClearence by admin",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "formData",
+						"description": "",
+						"type": "string",
+						"format": "uuid",
+						"required": true
+					},
+					{
+						"name": "name",
+						"in": "formData",
+						"description": "name is required",
+						"type": "string",
+						"value": "",
+						"required": false
+					},
+					{
+						"name": "isBlocked",
+						"in": "formData",
+						"description": "",
+						"type": "number",
+						"required": false
+					}
+				],
+				"responses": {}
+			},
+			"delete": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-admin-securityClearence-delete-delete",
+				"tags": ["Security Clearence"],
+				"description": "Delete securityClearence by admin",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "formData",
+						"description": "",
+						"type": "string",
+						"format": "uuid",
+						"required": true
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/admin/v1/securityClearence/detail/{id}": {
+			"get": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-admin-securityClearence-detail-{id}-get",
+				"tags": ["Security Clearence"],
+				"description": "Get single securityClearence by admin",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"description": "",
+						"type": "string",
+						"format": "uuid",
+						"required": true
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/admin/v1/travelRequirement/": {
+			"post": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-admin-travel-requirement-create-POST",
+				"tags": ["Travel Requirement"],
+				"description": "Add Travel Requirement by admin",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "name",
+						"in": "formData",
+						"description": "name is required",
+						"type": "string",
+						"value": "",
+						"required": true
+					}
+				],
+				"responses": {}
+			},
+			"get": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-admin-travel-requirement-list-get",
+				"tags": ["Travel Requirement"],
+				"description": "Get Travel Requirement by admin",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "limit",
+						"in": "query",
+						"description": "",
+						"type": "number",
+						"required": false
+					},
+					{
+						"name": "skip",
+						"in": "query",
+						"description": "",
+						"type": "number",
+						"required": false
+					},
+					{
+						"name": "sortBy",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "orderBy",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "search",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"allowReserved": true,
+						"value": ""
+					}
+				],
+				"responses": {}
+			},
+			"put": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-admin-travel-requirement-update-put",
+				"tags": ["Travel Requirement"],
+				"description": "Update Travel Requirement by admin",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "formData",
+						"description": "",
+						"type": "string",
+						"format": "uuid",
+						"required": true
+					},
+					{
+						"name": "name",
+						"in": "formData",
+						"description": "name is required",
+						"type": "string",
+						"value": "",
+						"required": false
+					},
+					{
+						"name": "isBlocked",
+						"in": "formData",
+						"description": "",
+						"type": "number",
+						"required": false
+					}
+				],
+				"responses": {}
+			},
+			"delete": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-admin-travel-requirement-delete-delete",
+				"tags": ["Travel Requirement"],
+				"description": "Delete Travel Requirement by admin",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "formData",
+						"description": "",
+						"type": "string",
+						"format": "uuid",
+						"required": true
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/admin/v1/travelRequirement/detail/{id}": {
+			"get": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-admin-travel-requirement-detail-{id}-get",
+				"tags": ["Travel Requirement"],
+				"description": "Get single travel requirement by admin",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"description": "",
+						"type": "string",
+						"format": "uuid",
+						"required": true
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/admin/v1/screening-question/": {
+			"post": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-admin-screening-question-create-POST",
+				"tags": ["Screening Question"],
+				"description": "Add Screening Question by admin",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "title",
+						"in": "formData",
+						"description": "title is required",
+						"type": "string",
+						"value": "",
+						"required": true
+					},
+					{
+						"name": "answer",
+						"in": "formData",
+						"description": "answer is required",
+						"type": "string",
+						"value": "",
+						"required": true
+					},
+					{
+						"name": "question",
+						"in": "formData",
+						"description": "question is required",
+						"type": "string",
+						"value": "",
+						"required": true
+					},
+					{
+						"name": "responseType",
+						"in": "formData",
+						"type": "number",
+						"enum": [0, 1],
+						"description": "0 =>radio button, 1 => Text",
+						"required": true
+					}
+				],
+				"responses": {}
+			},
+			"get": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-admin-screening-question-list-get",
+				"tags": ["Screening Question"],
+				"description": "Get Screening Question by admin",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "limit",
+						"in": "query",
+						"description": "",
+						"type": "number",
+						"required": false
+					},
+					{
+						"name": "skip",
+						"in": "query",
+						"description": "",
+						"type": "number",
+						"required": false
+					},
+					{
+						"name": "sortBy",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "orderBy",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "search",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"allowReserved": true,
+						"value": ""
+					}
+				],
+				"responses": {}
+			},
+			"put": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-admin-screening-question-update-put",
+				"tags": ["Screening Question"],
+				"description": "Update Screening Question by admin",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "formData",
+						"description": "",
+						"type": "string",
+						"format": "uuid",
+						"required": true
+					},
+					{
+						"name": "title",
+						"in": "formData",
+						"description": "title is required",
+						"type": "string",
+						"value": "",
+						"required": true
+					},
+					{
+						"name": "answer",
+						"in": "formData",
+						"description": "answer is required",
+						"type": "string",
+						"value": "",
+						"required": true
+					},
+					{
+						"name": "question",
+						"in": "formData",
+						"description": "question is required",
+						"type": "string",
+						"value": "",
+						"required": true
+					},
+					{
+						"name": "responseType",
+						"in": "formData",
+						"type": "number",
+						"enum": [0, 1],
+						"description": "0 =>radio button, 1 => Text",
+						"required": true
+					}
+				],
+				"responses": {}
+			},
+			"delete": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-admin-screening-question-delete",
+				"tags": ["Screening Question"],
+				"description": "Delete Screening Question by admin",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "formData",
+						"description": "",
+						"type": "string",
+						"format": "uuid",
+						"required": true
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/admin/v1/screening-question/block": {
+			"put": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-admin-screening-question-block-put",
+				"tags": ["Screening Question"],
+				"description": "Update Screening Question by admin",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "formData",
+						"description": "",
+						"type": "string",
+						"format": "uuid",
+						"required": true
+					},
+					{
+						"name": "isBlocked",
+						"in": "formData",
+						"description": "isBlocked is required",
+						"type": "string",
+						"value": ""
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/admin/v1/notification-message/": {
+			"post": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-admin-notification-message-create-POST",
+				"tags": ["Notification Message"],
+				"description": "Add Notification Message by admin",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "title",
+						"in": "formData",
+						"description": "title is required",
+						"type": "string",
+						"value": "",
+						"required": false
+					},
+					{
+						"name": "message",
+						"in": "formData",
+						"description": "message is required",
+						"type": "string",
+						"value": "",
+						"required": false
+					},
+					{
+						"name": "schedule",
+						"in": "formData",
+						"description": "schedule is required",
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "description",
+						"in": "formData",
+						"description": "description",
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "startDate",
+						"in": "formData",
+						"description": "YYYY-MM-DD",
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "userType",
+						"in": "formData",
+						"type": "number",
+						"enum": [0, 1, 2, 3, 4, 5],
+						"description": "0 =>All Users, 1 => IOS, 2 =>ANDROID, 3 => WEB, 4 => Recruiter, 5 =>Sub_Admin",
+						"required": false
+					},
+					{
+						"name": "notificationStatus",
+						"in": "formData",
+						"type": "number",
+						"enum": [0, 1],
+						"description": "0 = Save as Draft , 1 = Send now ",
+						"required": false
+					}
+				],
+				"responses": {}
+			},
+			"get": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-admin-notification-message-list-get",
+				"tags": ["Notification Message"],
+				"description": "Get Notification Message by admin",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "limit",
+						"in": "query",
+						"description": "",
+						"type": "number",
+						"required": false
+					},
+					{
+						"name": "skip",
+						"in": "query",
+						"description": "",
+						"type": "number",
+						"required": false
+					},
+					{
+						"name": "sortBy",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "orderBy",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "search",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"allowReserved": true,
+						"value": ""
+					},
+					{
+						"name": "userType",
+						"in": "query",
+						"type": "number",
+						"enum": [0, 1, 2, 3, 4, 5, 6],
+						"description": "0 =>choose by user, 1 => IOS, 2 =>ANDROID, 3 => WEB, 4 => Recruiter, 5 =>Sub_Admin, 6 => All User"
+					}
+				],
+				"responses": {}
+			},
+			"put": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-admin-notification-message-update-put",
+				"tags": ["Notification Message"],
+				"description": "Update Notification Message by admin",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "formData",
+						"description": "",
+						"type": "string",
+						"format": "uuid",
+						"required": true
+					},
+					{
+						"name": "title",
+						"in": "formData",
+						"description": "title is required",
+						"type": "string",
+						"value": "",
+						"required": false
+					},
+					{
+						"name": "message",
+						"in": "formData",
+						"description": "message is required",
+						"type": "string",
+						"value": "",
+						"required": false
+					},
+					{
+						"name": "schedule",
+						"in": "formData",
+						"description": "schedule is required",
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "description",
+						"in": "formData",
+						"description": "description",
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "startDate",
+						"in": "formData",
+						"description": "YYYY-MM-DD",
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "userType",
+						"in": "formData",
+						"type": "number",
+						"enum": [0, 1, 2, 3, 4, 5],
+						"description": "0 =>All user, 1 => IOS, 2 =>ANDROID, 3 => WEB, 4 => Recruiter, 5 =>Sub_Admin",
+						"required": false
+					},
+					{
+						"name": "notificationStatus",
+						"in": "formData",
+						"type": "number",
+						"enum": [0, 1],
+						"description": "0 = Save as Draft , 1 = Send now ",
+						"required": false
+					}
+				],
+				"responses": {}
+			},
+			"delete": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-admin-notification-message-delete",
+				"tags": ["Notification Message"],
+				"description": "Delete Notification Message by admin",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "formData",
+						"description": "",
+						"type": "string",
+						"format": "uuid",
+						"required": true
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/admin/v1/promoCode": {
+			"post": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-admin-promo-code-create-POST",
+				"tags": ["Promo Code"],
+				"description": "Add promo code by admin",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "name",
+						"in": "formData",
+						"description": "enter is your name",
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "code",
+						"in": "formData",
+						"description": "enter is your code",
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "description",
+						"in": "formData",
+						"description": "description is required",
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "startDate",
+						"in": "formData",
+						"description": "YYYY-MM-DD",
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "expiryDate",
+						"in": "formData",
+						"description": "YYYY-MM-DD",
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "discountPercentage",
+						"in": "formData",
+						"description": "discountPercentage is required",
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "promoType",
+						"enum": [0, 1],
+						"description": "0 for subscription Promo plans 1 for inventory Promo plans",
+						"in": "formData",
+						"type": "integer",
+						"required": false
+					}
+				],
+				"responses": {}
+			},
+			"get": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-promo-code-list-get",
+				"tags": ["Promo Code"],
+				"description": "Get Promo code by admin",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "limit",
+						"in": "query",
+						"description": "",
+						"type": "number",
+						"required": false
+					},
+					{
+						"name": "skip",
+						"in": "query",
+						"description": "",
+						"type": "number",
+						"required": false
+					},
+					{
+						"name": "sortBy",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "orderBy",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "search",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"allowReserved": true,
+						"value": ""
+					},
+					{
+						"name": "promoType",
+						"enum": [0, 1],
+						"description": "0 for subscription Promo plans 1 for inventory Promo plans",
+						"in": "query",
+						"type": "integer",
+						"required": false
+					},
+					{
+						"name": "startDate",
+						"in": "query",
+						"description": "YYYY-MM-DD",
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "expiryDate",
+						"in": "query",
+						"description": "YYYY-MM-DD",
+						"type": "string",
+						"value": ""
+					}
+				],
+				"responses": {}
+			},
+			"put": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-admin-promo-code-update-put",
+				"tags": ["Promo Code"],
+				"description": "Update Promo code by admin",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "formData",
+						"description": "",
+						"type": "string",
+						"format": "uuid",
+						"required": true
+					},
+					{
+						"name": "name",
+						"in": "formData",
+						"description": "enter is your name",
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "code",
+						"in": "formData",
+						"description": "enter is your code",
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "description",
+						"in": "formData",
+						"description": "description is required",
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "startDate",
+						"in": "formData",
+						"description": "YYYY-MM-DD",
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "expiryDate",
+						"in": "formData",
+						"description": "YYYY-MM-DD",
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "discountPercentage",
+						"in": "formData",
+						"description": "discountPercentage is required",
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "isBlocked",
+						"in": "formData",
+						"description": "isBlocked is required",
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "promoType",
+						"enum": [0, 1],
+						"description": "0 for subscription Promo plans 1 for inventory Promo plans",
+						"in": "formData",
+						"type": "integer",
+						"required": false
+					}
+				],
+				"responses": {}
+			},
+			"delete": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-admin-promo-code-delete",
+				"tags": ["Promo Code"],
+				"description": "Delete promo code by admin",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "formData",
+						"description": "",
+						"type": "string",
+						"format": "uuid",
+						"required": true
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/admin/v1/promoCode/detail/{id}": {
+			"get": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-promo-code-list-get-by-Id",
+				"tags": ["Promo Code"],
+				"description": "Get Promo code by admin",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"description": "",
+						"type": "string",
+						"format": "uuid",
+						"required": true
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/admin/v1/notification-message/block": {
+			"put": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-admin-notification-message-block-put",
+				"tags": ["Notification Message"],
+				"description": "Update Notification Message by admin",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "formData",
+						"description": "",
+						"type": "string",
+						"format": "uuid",
+						"required": true
+					},
+					{
+						"name": "isBlocked",
+						"in": "formData",
+						"description": "isBlocked is required",
+						"type": "string",
+						"value": ""
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/admin/v1/notification-message/detail/{id}": {
+			"get": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-notification-message-detail-{id}-get",
+				"tags": ["Notification Message"],
+				"description": "Get Notification Message by admin",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"description": "",
+						"type": "string",
+						"format": "uuid",
+						"required": true
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/admin/v1/industry/": {
+			"post": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-Industry-create-POST",
+				"tags": ["Industry"],
+				"description": "Add Industry by admin",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "name",
+						"in": "formData",
+						"description": "name is required",
+						"type": "string",
+						"value": "",
+						"required": true
+					}
+				],
+				"responses": {}
+			},
+			"get": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-Industry-list-get",
+				"tags": ["Industry"],
+				"description": "Get skills by admin",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "limit",
+						"in": "query",
+						"description": "",
+						"type": "number",
+						"required": false
+					},
+					{
+						"name": "skip",
+						"in": "query",
+						"description": "",
+						"type": "number",
+						"required": false
+					},
+					{
+						"name": "sortBy",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "orderBy",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "search",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"allowReserved": true,
+						"value": ""
+					}
+				],
+				"responses": {}
+			},
+			"put": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-industry-update-put",
+				"tags": ["Industry"],
+				"description": "Update industry by admin",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "formData",
+						"description": "",
+						"type": "string",
+						"format": "uuid",
+						"required": true
+					},
+					{
+						"name": "name",
+						"in": "formData",
+						"description": "name is required",
+						"type": "string",
+						"value": "",
+						"required": false
+					},
+					{
+						"name": "isBlocked",
+						"in": "formData",
+						"description": "",
+						"type": "number",
+						"required": false
+					}
+				],
+				"responses": {}
+			},
+			"delete": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-industry-delete-delete",
+				"tags": ["Industry"],
+				"description": "Delete skills by admin",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "formData",
+						"description": "",
+						"type": "string",
+						"format": "uuid",
+						"required": true
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/admin/v1/industry/detail/{id}": {
+			"get": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-industry-detail-{id}-get",
+				"tags": ["Industry"],
+				"description": "Get Industry skills by admin",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"description": "",
+						"type": "string",
+						"format": "uuid",
+						"required": true
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/admin/v1/JobTitle/": {
+			"post": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-Job-Title-create-POST",
+				"tags": ["Job Title"],
+				"description": "Add Job Title by admin",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "name",
+						"in": "formData",
+						"description": "name is required",
+						"type": "string",
+						"value": "",
+						"required": true
+					}
+				],
+				"responses": {}
+			},
+			"get": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-Job-Title-list-get",
+				"tags": ["Job Title"],
+				"description": "Get skills by admin",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "limit",
+						"in": "query",
+						"description": "",
+						"type": "number",
+						"required": false
+					},
+					{
+						"name": "skip",
+						"in": "query",
+						"description": "",
+						"type": "number",
+						"required": false
+					},
+					{
+						"name": "sortBy",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "orderBy",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "search",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"allowReserved": true,
+						"value": ""
+					}
+				],
+				"responses": {}
+			},
+			"put": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-Job-Title-update-put",
+				"tags": ["Job Title"],
+				"description": "Update Job Title by admin",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "formData",
+						"description": "",
+						"type": "string",
+						"format": "uuid",
+						"required": true
+					},
+					{
+						"name": "name",
+						"in": "formData",
+						"description": "name is required",
+						"type": "string",
+						"value": "",
+						"required": false
+					},
+					{
+						"name": "isBlocked",
+						"in": "formData",
+						"description": "",
+						"type": "number",
+						"required": false
+					}
+				],
+				"responses": {}
+			},
+			"delete": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-Job-Title-delete-delete",
+				"tags": ["Job Title"],
+				"description": "Delete JobTitle by admin",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "formData",
+						"description": "",
+						"type": "string",
+						"format": "uuid",
+						"required": true
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/admin/v1/JobTitle/detail/{id}": {
+			"get": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-Job-Title-detail-{id}-get",
+				"tags": ["Job Title"],
+				"description": "Get Job Title skills by admin",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"description": "",
+						"type": "string",
+						"format": "uuid",
+						"required": true
+					}
+				],
+				"responses": {}
+			}
+		},
+
+		"/admin/v1/category/saveCategory": {
+			"post": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-saveCategory-create-POST",
+				"tags": ["Categories"],
+				"description": "Add categeory by admin",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "name",
+						"in": "formData",
+						"description": "name is required",
+						"type": "string",
+						"value": "",
+						"required": true
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/admin/v1/category/saveSubCategory": {
+			"post": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-saveSubCategory-create-POST",
+				"tags": ["Sub Categories"],
+				"description": "Add sub cat by admin",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "name",
+						"in": "formData",
+						"description": "name is required",
+						"type": "string",
+						"value": "",
+						"required": true
+					},
+					{
+						"name": "categoryId",
+						"in": "formData",
+						"description": "categoryId",
+						"type": "string",
+						"value": "",
+						"required": false
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/admin/v1/category/getCategories": {
+			"get": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-getCategories-list-get",
+				"tags": ["Categories"],
+				"description": "Get cat by admin",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "limit",
+						"in": "query",
+						"description": "",
+						"type": "number",
+						"required": false
+					},
+					{
+						"name": "skip",
+						"in": "query",
+						"description": "",
+						"type": "number",
+						"required": false
+					},
+					{
+						"name": "sortBy",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "orderBy",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "search",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"allowReserved": true,
+						"value": ""
+					}
+				],
+				"responses": {}
+			}
+		},
+
+		"/admin/v1/users/listing": {
+			"get": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-users-listing-get",
+				"tags": ["Users Management"],
+				"description": "Get User listing by admin",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "limit",
+						"in": "query",
+						"description": "",
+						"type": "number",
+						"required": false
+					},
+					{
+						"name": "skip",
+						"in": "query",
+						"description": "",
+						"type": "number",
+						"required": false
+					},
+					{
+						"name": "sortBy",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "orderBy",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "search",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"allowReserved": true,
+						"value": ""
+					},
+					{
+						"name": "startDate",
+						"in": "query",
+						"description": "YYYY-MM-DD",
+						"required": false,
+						"type": "",
+						"value": ""
+					},
+					{
+						"name": "endDate",
+						"in": "query",
+						"description": "YYYY-MM-DD",
+						"required": false,
+						"type": "date",
+						"value": ""
+					},
+					{
+						"name": "isBlocked",
+						"enum": [0, 1],
+						"description": "0 => unBlocked Users , 1=> Blocked Users",
+						"in": "query",
+						"type": "number",
+						"required": false
+					},
+					{
+						"name": "skillId",
+						"in": "formData",
+						"description": "['10','11','12']",
+						"type": "string",
+						"value": "",
+						"required": false
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/admin/v1/category/getSubCategories": {
+			"get": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-getSubCategories-list-get",
+				"tags": ["Sub Categories"],
+				"description": "Get sub cat by admin",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "limit",
+						"in": "query",
+						"description": "",
+						"type": "number",
+						"required": false
+					},
+					{
+						"name": "skip",
+						"in": "query",
+						"description": "",
+						"type": "number",
+						"required": false
+					},
+					{
+						"name": "sortBy",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "orderBy",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "search",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"allowReserved": true,
+						"value": ""
+					}
+				],
+				"responses": {}
+			}
+		},
+
+		"/admin/v1/category/updateCategory": {
+			"put": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-updateCategory-update-put",
+				"tags": ["Categories"],
+				"description": "Update cat by admin",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "formData",
+						"description": "",
+						"type": "string",
+						"format": "uuid",
+						"required": true
+					},
+					{
+						"name": "name",
+						"in": "formData",
+						"description": "name is required",
+						"type": "string",
+						"value": "",
+						"required": false
+					},
+					{
+						"name": "isBlocked",
+						"in": "formData",
+						"description": "",
+						"type": "number",
+						"required": false
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/admin/v1/category/updateSubCategory": {
+			"put": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-updateSubCategory-update-put",
+				"tags": ["Sub Categories"],
+				"description": "Update sub cat by admin",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "formData",
+						"description": "",
+						"type": "string",
+						"format": "uuid",
+						"required": true
+					},
+					{
+						"name": "name",
+						"in": "formData",
+						"description": "name is required",
+						"type": "string",
+						"value": "",
+						"required": false
+					},
+					{
+						"name": "categoryId",
+						"in": "formData",
+						"description": "categoryId",
+						"type": "string",
+						"value": "",
+						"required": false
+					},
+					{
+						"name": "isBlocked",
+						"in": "formData",
+						"description": "",
+						"type": "number",
+						"required": false
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/admin/v1/category/deleteCategory": {
+			"delete": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-deleteCategory-delete",
+				"tags": ["Categories"],
+				"description": "Delete cat by admin",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "formData",
+						"description": "",
+						"type": "string",
+						"format": "uuid",
+						"required": true
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/admin/v1/category/deleteSubCategory": {
+			"delete": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-deleteSubCategory-delete",
+				"tags": ["Sub Categories"],
+				"description": "Delete sub cat by admin",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "formData",
+						"description": "",
+						"type": "string",
+						"format": "uuid",
+						"required": true
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/admin/v1/category/categoryDetail/{id}": {
+			"get": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-industry-detail-{id}-get",
+				"tags": ["Categories"],
+				"description": "Get Industry skills by admin",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "formData",
+						"description": "",
+						"type": "string",
+						"format": "uuid",
+						"required": true
+					}
+				],
+				"responses": {}
+			}
+		},
+
+		"/admin/v1/users/detail/{id}": {
+			"get": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-user-detail-{id}-get",
+				"tags": ["Users Management"],
+				"description": "Get User details by admin",
+
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"description": "",
+						"type": "string",
+						"format": "uuid",
+						"required": true
+					}
+				],
+				"responses": {}
+			}
+		},
+
+		"/admin/v1/category/subCategoryDetail/{id}": {
+			"get": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-subCategoryDetail-detail-{id}-get",
+				"tags": ["Sub Categories"],
+				"description": "Get sub cat by admin",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "formData",
+						"description": "",
+						"type": "string",
+						"format": "uuid",
+						"required": true
+					}
+				],
+				"responses": {}
+			}
+		},
+
+		"/admin/v1/users/delete": {
+			"delete": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-user-{id}-delete-delete",
+				"tags": ["Users Management"],
+				"description": "Delete User by admin",
+
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "formData",
+						"description": "",
+						"type": "string",
+						"format": "uuid",
+						"required": true
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/admin/v1/users/block": {
+			"put": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-user-{id}-block",
+				"tags": ["Users Management"],
+				"description": "block User by admin",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "formData",
+						"description": "",
+						"type": "string",
+						"format": "uuid",
+						"required": true
+					},
+					{
+						"name": "isBlocked",
+						"enum": [0, 1],
+						"description": "Blocked admin users",
+						"in": "formData",
+						"type": "integer",
+						"required": false
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/admin/v1/dashboard/stats": {
+			"get": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-dashboard-stats-get",
+				"tags": ["Dashboard Management"],
+				"description": "Get Dashboard Stats by admin",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "startDate",
+						"in": "query",
+						"description": "YYYY-MM-DD",
+						"required": false,
+						"type": "date",
+						"value": ""
+					},
+					{
+						"name": "endDate",
+						"in": "query",
+						"description": "YYYY-MM-DD",
+						"required": false,
+						"type": "date",
+						"value": ""
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/admin/v1/dashboard/dashboardGraph": {
+			"get": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-dashboard-user-get",
+				"tags": ["Dashboard User Management"],
+				"description": "Get Dashboard user graph by admin",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "startDate",
+						"in": "query",
+						"description": "YYYY-MM-DD",
+						"required": false,
+						"type": "date",
+						"value": ""
+					},
+					{
+						"name": "endDate",
+						"in": "query",
+						"description": "YYYY-MM-DD",
+						"required": false,
+						"type": "date",
+						"value": ""
+					},
+					{
+                        "name": "dateRange",
+                        "in": "query",
+                        "description": "",
+                        "required": false,
+                        "enum": ["TODAY","WEEK","MONTH","YEAR"],
+                        "type": "string",
+                        "value": ""
+                    },
+                    {
+                        "name": "yearByData",
+                        "in": "query",
+                        "description": "example 2023",
+                        "required": false,
+                        "type": "string",
+                        "value": ""
+                      }
+
+				],
+				"responses": {}
+			}
+		},
+		"/admin/v1/jobs": {
+			"get": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-user-jobs-get",
+				"tags": ["Jobs Posted"],
+				"description": "Get All jobs",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "recuiterId",
+						"in": "query",
+						"description": "",
+						"type": "string",
+						"required": false
+					},
+					{
+						"name": "limit",
+						"in": "query",
+						"description": "",
+						"type": "number",
+						"required": false
+					},
+					{
+						"name": "skip",
+						"in": "query",
+						"description": "",
+						"type": "number",
+						"required": false
+					},
+					{
+						"name": "sortBy",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "orderBy",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "search",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"allowReserved": true,
+						"value": ""
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/admin/v1/jobs/{id}": {
+			"get": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-common-{id}-get",
+				"tags": ["Jobs Posted"],
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"description": "Get Job details by id",
+
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"description": "",
+						"type": "string",
+						"required": true
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/admin/v1/recruiter/subRecruiterListing": {
+			"get": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-recruiter-compant-listing-get",
+				"tags": ["Recruiter Management"],
+				"description": "Get Company users listing",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "query",
+						"description": "",
+						"type": "string",
+						"required": true
+					},
+					{
+						"name": "limit",
+						"in": "query",
+						"description": "",
+						"type": "number",
+						"required": false
+					},
+					{
+						"name": "skip",
+						"in": "query",
+						"description": "",
+						"type": "number",
+						"required": false
+					},
+					{
+						"name": "sortBy",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "orderBy",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "search",
+						"in": "query",
+						"description": "search",
+						"required": false,
+						"type": "string",
+						"allowReserved": true,
+						"value": ""
+					},
+					{
+						"name": "startDate",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"allowReserved": true,
+						"value": ""
+					},
+					{
+						"name": "endDate",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"allowReserved": true,
+						"value": ""
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/admin/v1/recruiter/subRecruiter/detail/{id}": {
+			"get": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-sub-recruiter-{id}-get",
+				"tags": ["Recruiter Management"],
+				"description": "Get sub-Recruiter users details by id",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"description": "",
+						"type": "string",
+						"required": true
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/admin/v1/recruiter/companyJobs": {
+			"get": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-recruiter-compant-listing-by-Id-get",
+				"tags": ["Recruiter Management"],
+				"description": "Get Company users listing By Id",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "query",
+						"description": "",
+						"type": "string",
+						"required": true
+					},
+					{
+						"name": "limit",
+						"in": "query",
+						"description": "",
+						"type": "number",
+						"required": false
+					},
+					{
+						"name": "skip",
+						"in": "query",
+						"description": "",
+						"type": "number",
+						"required": false
+					},
+					{
+						"name": "sortBy",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "orderBy",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "search",
+						"in": "query",
+						"description": "search",
+						"required": false,
+						"type": "string",
+						"allowReserved": true,
+						"value": ""
+					},
+					{
+						"name": "startDate",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"allowReserved": true,
+						"value": ""
+					},
+					{
+						"name": "endDate",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"allowReserved": true,
+						"value": ""
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/admin/v1/recruiter/subRecruiterJobs": {
+			"get": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-recruiter-sub-Recruiter-Jobs-listing-by-Id-get",
+				"tags": ["Recruiter Management"],
+				"description": "Get subRecruiterJobs users listing By Id",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "query",
+						"description": "",
+						"type": "string",
+						"required": true
+					},
+					{
+						"name": "limit",
+						"in": "query",
+						"description": "",
+						"type": "number",
+						"required": false
+					},
+					{
+						"name": "skip",
+						"in": "query",
+						"description": "",
+						"type": "number",
+						"required": false
+					},
+					{
+						"name": "sortBy",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "orderBy",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "search",
+						"in": "query",
+						"description": "search",
+						"required": false,
+						"type": "string",
+						"allowReserved": true,
+						"value": ""
+					},
+					{
+						"name": "startDate",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"allowReserved": true,
+						"value": ""
+					},
+					{
+						"name": "endDate",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"allowReserved": true,
+						"value": ""
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/admin/v1/recruiter/subRecruiterJobs/detail/{id}": {
+			"get": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-sub-recruiter-jobs-detail-{id}-get",
+				"tags": ["Recruiter Management"],
+				"description": "Get sub-Recruiter users details by id",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"description": "",
+						"type": "string",
+						"required": true
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/admin/v1/recruiter/candidateHiredRejected": {
+			"get": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-recruiter-sub-Recruiter-Candidate-hired-rejected-listing-by-Id-get",
+				"tags": ["Recruiter Management"],
+				"description": "Get subRecruiterJobs users listing By Id",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "query",
+						"description": "",
+						"type": "string",
+						"required": true
+					},
+					{
+						"name": "limit",
+						"in": "query",
+						"description": "",
+						"type": "number",
+						"required": false
+					},
+					{
+						"name": "skip",
+						"in": "query",
+						"description": "",
+						"type": "number",
+						"required": false
+					},
+					{
+						"name": "sortBy",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "orderBy",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "search",
+						"in": "query",
+						"description": "search",
+						"required": false,
+						"type": "string",
+						"allowReserved": true,
+						"value": ""
+					},
+					{
+						"name": "status",
+						"in": "query",
+						"description": "// 0 for pending 1 for shortlisted 2 for rejected and 3 for on hold",
+						"required": false,
+						"type": "number",
+						"enum": [0, 1, 2,3],
+						"allowReserved": true,
+						"value": ""
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/admin/v1/recruiter/candidateHiredRejected/detail/{id}": {
+			"get": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-candidate-hired-rejected-detail-{id}-get",
+				"tags": ["Recruiter Management"],
+				"description": "Get sub-Recruiter users details by id",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"description": "",
+						"type": "string",
+						"required": true
+					},
+					{
+						"name": "limit",
+						"in": "query",
+						"description": "",
+						"type": "number",
+						"required": false
+					},
+					{
+						"name": "skip",
+						"in": "query",
+						"description": "",
+						"type": "number",
+						"required": false
+					},
+					{
+						"name": "sortBy",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "orderBy",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "search",
+						"in": "query",
+						"description": "search",
+						"required": false,
+						"type": "string",
+						"allowReserved": true,
+						"value": ""
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/admin/v1/recruiter/subscriptionHistory/detail": {
+			"get": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-candidate-subscriptionHistory-detail-{id}-get",
+				"tags": ["Recruiter Management"],
+				"description": "Get Subscription plan history of company",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "query",
+						"description": "Company ID send",
+						"type": "string",
+						"required": true
+					},
+					{
+						"name": "limit",
+						"in": "query",
+						"description": "",
+						"type": "number",
+						"required": false
+					},
+					{
+						"name": "skip",
+						"in": "query",
+						"description": "",
+						"type": "number",
+						"required": false
+					},
+					{
+						"name": "sortBy",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "orderBy",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "search",
+						"in": "query",
+						"description": "search",
+						"required": false,
+						"type": "string",
+						"allowReserved": true,
+						"value": ""
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/admin/v1/recruiter/listing": {
+			"get": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-recruiter-listing-get",
+				"tags": ["Recruiter Management"],
+				"description": "Get Recruiter listing by admin",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "limit",
+						"in": "query",
+						"description": "",
+						"type": "number",
+						"required": false
+					},
+					{
+						"name": "skip",
+						"in": "query",
+						"description": "",
+						"type": "number",
+						"required": false
+					},
+					{
+						"name": "sortBy",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "orderBy",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "search",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"allowReserved": true,
+						"value": ""
+					},
+					{
+						"name": "startDate",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"allowReserved": true,
+						"value": ""
+					},
+					{
+						"name": "endDate",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"allowReserved": true,
+						"value": ""
+					},
+					{
+						"name": "isAdminApproved",
+						"in": "query",
+						"description": "0 is pending 1 is approved -1 rejected",
+						"required": false,
+						"type": "string",
+						"enum": [-1, 0, 1],
+						"allowReserved": true,
+						"value": ""
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/admin/v1/recruiter/delete": {
+			"delete": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-recruiter-{id}-delete-delete",
+				"tags": ["Recruiter Management"],
+				"description": "Delete Recruiter by admin",
+
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "formData",
+						"description": "",
+						"type": "string",
+						"format": "uuid",
+						"required": true
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/admin/v1/recruiter/block": {
+			"put": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-recruiter-{id}-block",
+				"tags": ["Recruiter Management"],
+				"description": "block Recruiter by admin",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "formData",
+						"description": "",
+						"type": "string",
+						"format": "uuid",
+						"required": true
+					},
+					{
+						"name": "isBlocked",
+						"enum": [0, 1],
+						"description": "Blocked admin Recruiter",
+						"in": "formData",
+						"type": "integer",
+						"required": false
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/admin/v1/recruiter/permission": {
+			"put": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-recruiter-{id}-permission-change",
+				"tags": ["Recruiter Management"],
+				"description": "permission Recruiter by admin",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "formData",
+						"description": "",
+						"type": "string",
+						"format": "uuid",
+						"required": true
+					},
+					{
+						"name": "isAdminApproved",
+						"enum": [0, 1, -1],
+						"description": "permission Recruiter by admin",
+						"in": "formData",
+						"type": "integer",
+						"required": true
+					},
+					{
+						"name": "reason",
+						"in": "formData",
+						"description": "reason",
+						"type": "string",
+						"value": "",
+						"required": false
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/admin/v1/recruiter/detail/{id}": {
+			"get": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-recruiter-detail-{id}-get",
+				"tags": ["Recruiter Management"],
+				"description": "Get User details by admin",
+
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"description": "",
+						"type": "string",
+						"format": "uuid",
+						"required": true
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/admin/v1/suggestSkills/": {
+			"post": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-suggestSkills-create-POST",
+				"tags": ["Suggested Skills"],
+				"description": "Add suggestSkills by admin",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "name",
+						"in": "formData",
+						"description": "name is required",
+						"type": "string",
+						"value": "",
+						"required": true
+					}
+				],
+				"responses": {}
+			},
+			"get": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-suggestSkills-list-get",
+				"tags": ["Suggested Skills"],
+				"description": "Get suggestSkills by admin",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "limit",
+						"in": "query",
+						"description": "",
+						"type": "number",
+						"required": false
+					},
+					{
+						"name": "skip",
+						"in": "query",
+						"description": "",
+						"type": "number",
+						"required": false
+					},
+					{
+						"name": "sortBy",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "orderBy",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "search",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"allowReserved": true,
+						"value": ""
+					}
+				],
+				"responses": {}
+			},
+			"put": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-suggestSkills-update-put",
+				"tags": ["Suggested Skills"],
+				"description": "Update suggestSkills by admin",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "formData",
+						"description": "",
+						"type": "string",
+						"format": "uuid",
+						"required": true
+					},
+					{
+						"name": "name",
+						"in": "formData",
+						"description": "name is required",
+						"type": "string",
+						"value": "",
+						"required": false
+					},
+					{
+						"name": "isBlocked",
+						"in": "formData",
+						"description": "",
+						"type": "number",
+						"required": false
+					}
+				],
+				"responses": {}
+			},
+			"delete": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-suggestSkills-delete-delete",
+				"tags": ["Suggested Skills"],
+				"description": "Delete suggestSkills by admin",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "formData",
+						"description": "",
+						"type": "string",
+						"format": "uuid",
+						"required": true
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/admin/v1/suggestSkills/detail/{id}": {
+			"get": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-suggestSkills-detail-{id}-get",
+				"tags": ["Suggested Skills"],
+				"description": "Get single suggestSkills by admin",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"description": "",
+						"type": "string",
+						"format": "uuid",
+						"required": true
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/admin/v1/successStories": {
+			"post": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-successStories-create-POST",
+				"tags": ["Success Stories"],
+				"description": "Add Success Stories by admin",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "uploadImage",
+						"in": "formData",
+						"description": "uploadImage is required",
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "name",
+						"in": "formData",
+						"description": "name is required",
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "companyName",
+						"in": "formData",
+						"description": "companyName is enter",
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "designation",
+						"in": "formData",
+						"description": "designation is required",
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "description",
+						"in": "formData",
+						"description": "description is required",
+						"type": "string",
+						"value": ""
+					}
+				],
+				"responses": {}
+			},
+			"get": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-successStories-list-get",
+				"tags": ["Success Stories"],
+				"description": "Get Success Stories by admin",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "limit",
+						"in": "query",
+						"description": "",
+						"type": "number",
+						"required": false,
+						"value": "100"
+					},
+					{
+						"name": "skip",
+						"in": "query",
+						"description": "",
+						"type": "number",
+						"required": false,
+						"value": "0"
+					},
+					{
+						"name": "sortBy",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "orderBy",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "search",
+						"in": "query",
+						"description": "Search on the bases of name, companyName and designation",
+						"required": false,
+						"type": "string",
+						"allowReserved": true,
+						"value": ""
+					},
+					{
+						"name": "startDate",
+						"in": "query",
+						"description": "YYYY-MM-DD",
+						"required": false,
+						"type": "",
+						"value": ""
+					},
+					{
+						"name": "endDate",
+						"in": "query",
+						"description": "YYYY-MM-DD",
+						"required": false,
+						"type": "date",
+						"value": ""
+					}
+				],
+				"responses": {}
+			},
+			"put": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-successStories-update-put",
+				"tags": ["Success Stories"],
+				"description": "Update Success Stories by admin",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "formData",
+						"description": "",
+						"type": "string",
+						"format": "uuid",
+						"required": true
+					},
+					{
+						"name": "uploadImage",
+						"in": "formData",
+						"description": "uploadImage is required",
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "name",
+						"in": "formData",
+						"description": "name is required",
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "companyName",
+						"in": "formData",
+						"description": "companyName is enter",
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "designation",
+						"in": "formData",
+						"description": "designation is required",
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "description",
+						"in": "formData",
+						"description": "description is required",
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "isBlocked",
+						"in": "formData",
+						"description": "o for unBlocked and 1 for blocked",
+						"type": "number",
+						"required": false
+					}
+				],
+				"responses": {}
+			},
+			"delete": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-successStories-delete-delete",
+				"tags": ["Success Stories"],
+				"description": "Delete Success Stories by admin",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "formData",
+						"description": "",
+						"type": "string",
+						"format": "uuid",
+						"required": true
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/admin/v1/successStories/detail/{id}": {
+			"get": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-successStories-detail-{id}-get",
+				"tags": ["Success Stories"],
+				"description": "Get single Success Stories by admin",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"description": "",
+						"type": "string",
+						"format": "uuid",
+						"required": true
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/admin/v1/paymentPlan/transaction": {
+			"get": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-Payment-plan-transaction-list-get",
+				"tags": ["Admin Transaction"],
+				"description": "Get Admin Transaction by recruiter",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "limit",
+						"in": "query",
+						"description": "",
+						"type": "number",
+						"required": false
+					},
+					{
+						"name": "skip",
+						"in": "query",
+						"description": "",
+						"type": "number",
+						"required": false
+					},
+					{
+						"name": "sortBy",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "orderBy",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "search",
+						"in": "query",
+						"description": "search by PlanName and recruiterName",
+						"required": false,
+						"type": "string",
+						"allowReserved": true,
+						"value": ""
+					},
+					{
+						"name": "startDate",
+						"in": "query",
+						"description": "YYYY-MM-DD",
+						"required": false,
+						"type": "",
+						"value": ""
+					},
+					{
+						"name": "endDate",
+						"in": "query",
+						"description": "YYYY-MM-DD",
+						"required": false,
+						"type": "date",
+						"value": ""
+					},
+					{
+						"name": "planType",
+						"in": "query",
+						"description": "0 for subscription plans 1 for inventory plans",
+						"type": "number",
+						"value": ""
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/admin/v1/paymentPlan/transaction/detail/{id}": {
+			"get": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-Payment-plan-transaction-detail-{id}-get",
+				"tags": ["Admin Transaction"],
+				"description": "Get single Payment Plan by admin",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"description": "",
+						"type": "string",
+						"format": "uuid",
+						"required": true
+					}
+				],
+				"responses": {}
+			}
+		},
+
+		"/admin/v1/paymentPlan/": {
+			"post": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-Payment-plan-create-POST",
+				"tags": ["Payment Plan"],
+				"description": "Add Payment Plan by admin",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "planName",
+						"in": "formData",
+						"description": "Plan name is required",
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "planAmount",
+						"in": "formData",
+						"description": "Plan amount is required",
+						"type": "",
+						"value": ""
+					},
+					{
+						"name": "planType",
+						"in": "formData",
+						"description": "0 for subscription plans 1 for inventory plans",
+						"type": "number",
+						"value": ""
+					},
+					{
+						"name": "numberOfJob",
+						"in": "formData",
+						"description": "Number of jobs assigned for each plan is required",
+						"type": "",
+						"value": ""
+					},
+					{
+						"name": "numberOfView",
+						"in": "formData",
+						"description": "Number of viwe assign in each plan is required",
+						"type": "",
+						"value": ""
+					},
+					{
+						"name": "concurrentJobsAssignedEachPlan",
+						"in": "formData",
+						"description": "Number of concurrent jobs assigned in each plan is required",
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "nonConcurrentJobsAssignedEachPlan",
+						"in": "formData",
+						"description": "Number of non-concurrent jobs assigned in each plan is required",
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "validityType",
+						"in": "formData",
+						"description": "validityType",
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "description",
+						"in": "formData",
+						"description": "added in description",
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "validity",
+						"in": "formData",
+						"description": "Payment Plan validity is required",
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "duration",
+						"in": "formData",
+						"description": "Payment Plan validity is required",
+						"type": "",
+						"value": ""
+					},
+					{
+						"name": "numberOfClicks",
+						"in": "formData",
+						"description": "Payment Plan numberOfClicks is required",
+						"type": "",
+						"value": ""
+					},
+					{
+						"name": "jobType",
+						"enum": [0, 1],
+						"description": "0 for concurrent plans 1 for non-concurrent plans",
+						"in": "formData",
+						"type": "integer",
+						"required": false
+					}
+				],
+				"responses": {}
+			},
+			"get": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-Payment-plan-list-get",
+				"tags": ["Payment Plan"],
+				"description": "Get Payment Plan by admin",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "limit",
+						"in": "query",
+						"description": "",
+						"type": "number",
+						"required": false,
+						"value": "100"
+					},
+					{
+						"name": "skip",
+						"in": "query",
+						"description": "",
+						"type": "number",
+						"required": false,
+						"value": "0"
+					},
+					{
+						"name": "sortBy",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "orderBy",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "search",
+						"in": "query",
+						"description": "Search on the bases of planName",
+						"required": false,
+						"type": "string",
+						"allowReserved": true,
+						"value": ""
+					},
+					{
+						"name": "startDate",
+						"in": "query",
+						"description": "YYYY-MM-DD",
+						"required": false,
+						"type": "",
+						"value": ""
+					},
+					{
+						"name": "endDate",
+						"in": "query",
+						"description": "YYYY-MM-DD",
+						"required": false,
+						"type": "date",
+						"value": ""
+					},
+					{
+						"name": "planType",
+						"enum": [0, 1],
+						"description": "0 for subscription plans 1 for inventory plans",
+						"in": "query",
+						"type": "integer",
+						"required": false
+					},
+					{
+						"name": "expireSoon",
+						"value": "0",
+						"description": "if you want only send ",
+						"in": "query",
+						"type": "number",
+						"required": false
+					},
+					{
+						"name": "dayType",
+						"enum": ["DAY", "WEEK", "MONTH"],
+						"description": "dayType ",
+						"in": "query",
+						"type": "string",
+						"required": false
+					}
+				],
+				"responses": {}
+			},
+			"put": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-Payment-plan-update-put",
+				"tags": ["Payment Plan"],
+				"description": "Update Payment Plan by admin",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "formData",
+						"description": "",
+						"type": "string",
+						"format": "uuid",
+						"required": true
+					},
+					{
+						"name": "planName",
+						"in": "formData",
+						"description": "Enter Plan name",
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "planAmount",
+						"in": "formData",
+						"description": "Enter the Plan amount.",
+						"type": "",
+						"value": ""
+					},
+					{
+						"name": "numberOfJob",
+						"in": "formData",
+						"description": "Number of jobs assigned for each plan",
+						"type": "",
+						"value": ""
+					},
+					{
+						"name": "numberOfView",
+						"in": "formData",
+						"description": "Number of viwe assign in each plan",
+						"type": "",
+						"value": ""
+					},
+					{
+						"name": "concurrentJobsAssignedEachPlan",
+						"in": "formData",
+						"description": "Number of concurrent jobs assigned in each plan",
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "nonConcurrentJobsAssignedEachPlan",
+						"in": "formData",
+						"description": "Number of non-concurrent jobs assigned in each plan",
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "description",
+						"in": "formData",
+						"description": "added in description",
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "validity",
+						"in": "formData",
+						"description": "Payment Plan validity",
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "duration",
+						"in": "formData",
+						"description": "Payment Plan duration",
+						"type": "",
+						"value": ""
+					},
+					{
+						"name": "numberOfClicks",
+						"in": "formData",
+						"description": "Payment Plan numberOfClicks",
+						"type": "",
+						"value": ""
+					},
+					{
+						"name": "jobType",
+						"enum": [0, 1],
+						"description": "0 for concureent plans 1 for non-concuurent plans",
+						"in": "formData",
+						"type": "integer",
+						"required": false
+					}
+				],
+				"responses": {}
+			},
+			"delete": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-Payment-plan-delete-delete",
+				"tags": ["Payment Plan"],
+				"description": "Delete Payment Plan by admin",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "formData",
+						"description": "",
+						"type": "string",
+						"format": "uuid",
+						"required": true
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/admin/v1/paymentPlan/userDetail": {
+			"get": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-paymentPlan-users-detail-list-get",
+				"tags": ["Payment Plan UsersDetail"],
+				"description": "Payment Plan UsersDetail",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "query",
+						"description": "",
+						"type": "string",
+						"required": true
+					},
+					{
+						"name": "limit",
+						"in": "query",
+						"description": "",
+						"type": "number",
+						"required": false
+					},
+					{
+						"name": "skip",
+						"in": "query",
+						"description": "",
+						"type": "number",
+						"required": false
+					},
+					{
+						"name": "sortBy",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "orderBy",
+						"in": "query",
+						"description": "",
+						"required": false,
+						"type": "string",
+						"value": ""
+					},
+					{
+						"name": "search",
+						"in": "query",
+						"description": "search",
+						"required": false,
+						"type": "string",
+						"allowReserved": true,
+						"value": ""
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/admin/v1/paymentPlan/block": {
+			"put": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-Payment-plan-block-update-put",
+				"tags": ["Payment Plan"],
+				"description": "Update Payment Plan by admin",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "formData",
+						"description": "",
+						"type": "string",
+						"format": "uuid",
+						"required": true
+					},
+					{
+						"name": "isBlocked",
+						"in": "formData",
+						"description": "",
+						"type": "number",
+						"required": false
+					}
+				],
+				"responses": {}
+			}
+		},
+		"/admin/v1/paymentPlan/detail/{id}": {
+			"get": {
+				"x-swagger-router-controller": "middleware-name1",
+				"operationId": "admin-v1-Payment-plan-detail-{id}-get",
+				"tags": ["Payment Plan"],
+				"description": "Get single Payment Plan by admin",
+				"security": [
+					{
+						"Bearer": []
+					}
+				],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"description": "",
+						"type": "string",
+						"format": "uuid",
+						"required": true
+					}
+				],
+				"responses": {}
+			}
+		}
+	},
+	"definitions": {
+		"accessPermissions": {
+			"type": "object",
+			"properties": {
+				"module": {
+					"type": "string"
+				},
+				"permission": {
+					"enum": [1, 0],
+					"description": "0 or 1 to set permission",
+					"type": "integer"
+				}
+			},
+			"example": {
+				"module": "dashboard",
+				"permission": 1
+			}
+		}
+	}
+}
